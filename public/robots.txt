@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://healingtouchbyalina.com/sitemap.xml
+
+# Block private API routes
+Disallow: /api/
