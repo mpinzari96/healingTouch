@@ -65,7 +65,7 @@ export function ContactPageClient() {
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
             className="text-white/70 text-lg font-light">
-            Questions about services? Ready to book? Reach out any way you prefer — I respond promptly.
+            Questions about services??? Ready to book? Reach out any way you prefer — I respond promptly.
           </motion.p>
         </div>
       </section>
