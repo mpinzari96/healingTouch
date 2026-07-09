@@ -61,9 +61,8 @@ export function FinalCTASection() {
               </span>
             </h2>
             <p className="text-white/70 text-lg leading-relaxed mb-8 max-w-md font-light">
-              Book your mobile massage in Dallas today and experience the luxury of having 
-              a full spa treatment delivered to your doorstep. No travel, no stress — just 
-              pure relaxation.
+              Book your massage in Frisco today — relax in my home studio or have a full session 
+              come to you. Every appointment is customized to help you feel your best.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/book" className="btn-primary bg-white text-sage-700 hover:bg-beige-100 shadow-button group inline-flex">
@@ -71,11 +70,11 @@ export function FinalCTASection() {
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
               </Link>
               <a
-                href="tel:+12145550192"
+                href="tel:[PHONE]"
                 className="btn-outline border-white/40 text-white hover:bg-white/10 hover:border-white/60 inline-flex"
               >
                 <Phone className="w-4 h-4" />
-                (214) 555-0192
+                916-261-5342
               </a>
             </div>
           </motion.div>
@@ -135,10 +134,12 @@ export function FinalCTASection() {
                     className="w-full px-4 py-3 rounded-xl bg-white/15 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-white/30 transition-all duration-200 text-sm backdrop-blur-sm"
                   >
                     <option value="" className="text-sage-800">Select a service...</option>
-                    <option value="swedish" className="text-sage-800">Swedish Massage – $110/60min</option>
-                    <option value="deep-tissue" className="text-sage-800">Deep Tissue – $130/60min</option>
-                    <option value="hot-stone" className="text-sage-800">Hot Stone – $150/75min</option>
-                    <option value="prenatal" className="text-sage-800">Prenatal – $120/60min</option>
+                    <option value="therapeutic" className="text-sage-800">Therapeutic Massage – from $110</option>
+                    <option value="relaxation" className="text-sage-800">Relaxation Massage – from $100</option>
+                    <option value="prenatal" className="text-sage-800">Prenatal Massage – from $110</option>
+                    <option value="pediatric" className="text-sage-800">Pediatric Massage – from $50</option>
+                    <option value="infant" className="text-sage-800">Infant Massage – $50</option>
+                    <option value="cbd-oil" className="text-sage-800">CBD Oil Massage – from $90</option>
                     <option value="unsure" className="text-sage-800">Not sure yet</option>
                   </select>
                 </div>

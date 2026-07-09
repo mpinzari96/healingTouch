@@ -1,12 +1,12 @@
 'use client';
 
-import { Shield, Star, MapPin, Clock, Award } from 'lucide-react';
+import { Shield, Home, MapPin, Clock, Award } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const trustItems = [
   { icon: Award, text: 'Licensed & Insured Therapist' },
-  { icon: Star, text: '4.98 ★ Average Rating (87 reviews)' },
-  { icon: MapPin, text: 'Serving Dallas & Surrounding Areas' },
+  { icon: Home, text: 'In-Studio & Mobile Sessions' },
+  { icon: MapPin, text: 'Serving Frisco & North Texas' },
   { icon: Shield, text: 'AMTA Member' },
   { icon: Clock, text: '7 Days a Week, 9AM–8PM' },
 ];

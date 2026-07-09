@@ -11,18 +11,22 @@ import {
 /* ─── CONSTANTS ──────────────────────────────────────── */
 
 const services = [
-  { id: 'swedish-60', label: 'Swedish Massage – 60 min', price: '$110' },
-  { id: 'swedish-75', label: 'Swedish Massage – 75 min', price: '$130' },
-  { id: 'swedish-90', label: 'Swedish Massage – 90 min', price: '$150' },
-  { id: 'deep-60', label: 'Deep Tissue – 60 min', price: '$130' },
-  { id: 'deep-75', label: 'Deep Tissue – 75 min', price: '$155' },
-  { id: 'deep-90', label: 'Deep Tissue – 90 min', price: '$175' },
-  { id: 'hotstone-75', label: 'Hot Stone – 75 min', price: '$150' },
-  { id: 'hotstone-90', label: 'Hot Stone – 90 min', price: '$175' },
-  { id: 'prenatal-60', label: 'Prenatal Massage – 60 min', price: '$120' },
-  { id: 'prenatal-75', label: 'Prenatal Massage – 75 min', price: '$140' },
-  { id: 'sports-60', label: 'Sports Massage – 60 min', price: '$135' },
-  { id: 'couples-60', label: 'Couples Massage – 60 min', price: '$220' },
+  { id: 'therapeutic-60', label: 'Therapeutic Massage – 60 min', price: '$110' },
+  { id: 'therapeutic-90', label: 'Therapeutic Massage – 90 min', price: '$150' },
+  { id: 'therapeutic-120', label: 'Therapeutic Massage – 120 min', price: '$190' },
+  { id: 'relaxation-60', label: 'Relaxation Massage – 60 min', price: '$100' },
+  { id: 'relaxation-90', label: 'Relaxation Massage – 90 min', price: '$145' },
+  { id: 'relaxation-120', label: 'Relaxation Massage – 120 min', price: '$180' },
+  { id: 'prenatal-60', label: 'Prenatal Massage – 60 min', price: '$110' },
+  { id: 'prenatal-90', label: 'Prenatal Massage – 90 min', price: '$130' },
+  { id: 'pediatric-30', label: 'Pediatric Massage (5–17) – 30 min', price: '$50' },
+  { id: 'pediatric-45', label: 'Pediatric Massage (5–17) – 45 min', price: '$70' },
+  { id: 'pediatric-60', label: 'Pediatric Massage (5–17) – 60 min', price: '$90' },
+  { id: 'infant-30', label: 'Infant Massage (Parent-Guided) – 30 min', price: '$50' },
+  { id: 'cbd-35', label: 'CBD Oil Massage – 35 min', price: '$90' },
+  { id: 'cbd-60', label: 'CBD Oil Massage – 60 min', price: '$125' },
+  { id: 'cbd-90', label: 'CBD Oil Massage – 90 min', price: '$160' },
+  { id: 'cbd-120', label: 'CBD Oil Massage – 120 min', price: '$190' },
 ];
 
 const timeSlots = [
@@ -39,6 +43,7 @@ type FormState = {
   service: string;
   date: string;
   time: string;
+  locationType: string;
   address: string;
   city: string;
   specialRequests: string;
@@ -54,6 +59,7 @@ const initialForm: FormState = {
   service: '',
   date: '',
   time: '',
+  locationType: '',
   address: '',
   city: '',
   specialRequests: '',
@@ -149,7 +155,11 @@ export function BookPageClient() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.address || !form.city) {
+    if (!form.locationType) {
+      showToast('Please choose whether you\'d like an in-studio or mobile session.', 'error');
+      return;
+    }
+    if (form.locationType === 'mobile' && (!form.address || !form.city)) {
       showToast('Please provide your address for the mobile service.', 'error');
       return;
     }
@@ -219,11 +229,14 @@ export function BookPageClient() {
               <strong>Preferred Time:</strong> {form.time}
             </p>
             <p className="text-sm text-sage-600">
-              <strong>Location:</strong> {form.address}, {form.city}, TX
+              <strong>Location:</strong>{' '}
+              {form.locationType === 'studio'
+                ? "Alina's home studio"
+                : `${form.address}, ${form.city}, TX (mobile)`}
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="tel:+12145550192" className="btn-primary">
+            <a href="tel:[PHONE]" className="btn-primary">
               <Phone className="w-4 h-4" /> Call Alina
             </a>
             <button onClick={() => { setSubmitted(false); setStep(0); setForm(initialForm); }} className="btn-outline">
@@ -245,7 +258,7 @@ export function BookPageClient() {
         <div className="relative max-w-3xl mx-auto px-6 text-center">
           <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
             className="section-label text-teal-300 mb-4">
-            Mobile Massage Dallas TX
+            Massage in Frisco TX
           </motion.p>
           <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.75, delay: 0.1 }}
             className="text-5xl md:text-6xl font-serif font-semibold text-white mb-4">
@@ -253,14 +266,14 @@ export function BookPageClient() {
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
             className="text-white/70 text-lg font-light">
-            I bring everything to your Dallas home or office. Fill out the form and I'll confirm within 2 hours.
+            Choose an in-studio visit or a mobile session and I'll confirm within 2 hours.
           </motion.p>
 
           {/* Trust row */}
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4, duration: 0.5 }}
             className="flex flex-wrap items-center justify-center gap-5 mt-8">
             {[
-              { icon: Home, text: 'Mobile Only – I Come to You' },
+              { icon: Home, text: 'In-Studio or Mobile' },
               { icon: Clock, text: 'Available 7 Days/Week' },
               { icon: CheckCircle, text: 'Licensed & Insured' },
             ].map(({ icon: Icon, text }) => (
@@ -415,35 +428,69 @@ export function BookPageClient() {
                 <>
                   <div>
                     <h3 className="font-serif text-2xl font-semibold text-sage-800 mb-1">Location & Notes</h3>
-                    <p className="text-sage-400 text-sm">Tell me where to come and any special needs.</p>
+                    <p className="text-sage-400 text-sm">Choose where you&apos;d like your session and share any special needs.</p>
                   </div>
 
-                  {/* Mobile note */}
-                  <div className="bg-teal-50 border border-teal-100 rounded-2xl p-4 flex gap-3">
-                    <Home className="w-5 h-5 text-teal-500 flex-shrink-0 mt-0.5" />
-                    <div>
-                      <p className="text-teal-700 font-medium text-sm">Mobile Massage Only</p>
-                      <p className="text-teal-600 text-xs leading-relaxed mt-0.5">
-                        I bring everything — table, linens, oils, and ambience. You just need a clear 
-                        7×10 ft space. I serve Dallas and surrounding cities within ~25 miles.
-                      </p>
-                    </div>
-                  </div>
-
-                  <Field label="Street Address" required>
-                    <div className="relative">
-                      <MapPin className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-sage-300" />
-                      <input type="text" value={form.address} onChange={set('address')} required
-                        placeholder="123 Oak Street, Apt 4B" className="input-base pl-10"
-                        autoComplete="street-address" />
+                  {/* Location type choice */}
+                  <Field label="Where would you like your session?" required>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {[
+                        { value: 'studio', title: "Alina's Home Studio", desc: 'Visit my calming home studio in Frisco.' },
+                        { value: 'mobile', title: 'Mobile — Come to Me', desc: 'I travel to you. Travel fee from $25.' },
+                      ].map(opt => (
+                        <button
+                          key={opt.value}
+                          type="button"
+                          onClick={() => setForm(p => ({ ...p, locationType: opt.value }))}
+                          className={`text-left p-4 rounded-2xl border transition-all duration-200 ${
+                            form.locationType === opt.value
+                              ? 'bg-sage-500 border-sage-500 text-white shadow-sm'
+                              : 'bg-white border-sage-100 text-sage-700 hover:border-sage-300 hover:bg-sage-50'
+                          }`}
+                        >
+                          <span className="flex items-center gap-2 font-medium text-sm">
+                            {opt.value === 'studio' ? <Home className="w-4 h-4" /> : <MapPin className="w-4 h-4" />}
+                            {opt.title}
+                          </span>
+                          <span className={`block text-xs mt-1 ${form.locationType === opt.value ? 'text-white/80' : 'text-sage-400'}`}>
+                            {opt.desc}
+                          </span>
+                        </button>
+                      ))}
                     </div>
                   </Field>
 
-                  <Field label="City" required hint="Must be in Dallas or surrounding DFW area">
-                    <input type="text" value={form.city} onChange={set('city')} required
-                      placeholder="Dallas, Plano, Frisco, McKinney..." className="input-base"
-                      autoComplete="address-level2" />
-                  </Field>
+                  {/* Mobile-only fields */}
+                  {form.locationType === 'mobile' && (
+                    <>
+                      <div className="bg-teal-50 border border-teal-100 rounded-2xl p-4 flex gap-3">
+                        <Home className="w-5 h-5 text-teal-500 flex-shrink-0 mt-0.5" />
+                        <div>
+                          <p className="text-teal-700 font-medium text-sm">Mobile Massage</p>
+                          <p className="text-teal-600 text-xs leading-relaxed mt-0.5">
+                            I bring everything — table, linens, oils, and ambience. You just need a clear 
+                            7×10 ft space. Serving Frisco, Little Elm, McKinney, Prosper, Allen, Plano, and 
+                            surrounding North Texas areas. A travel fee starting at $25 applies based on distance.
+                          </p>
+                        </div>
+                      </div>
+
+                      <Field label="Street Address" required>
+                        <div className="relative">
+                          <MapPin className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-sage-300" />
+                          <input type="text" value={form.address} onChange={set('address')}
+                            placeholder="123 Oak Street, Apt 4B" className="input-base pl-10"
+                            autoComplete="street-address" />
+                        </div>
+                      </Field>
+
+                      <Field label="City" required hint="Must be in Frisco or the surrounding North Texas area">
+                        <input type="text" value={form.city} onChange={set('city')}
+                          placeholder="Frisco, Little Elm, McKinney, Prosper..." className="input-base"
+                          autoComplete="address-level2" />
+                      </Field>
+                    </>
+                  )}
 
                   <Field label="Special Requests or Health Notes"
                     hint="Areas of focus, health conditions, allergies to oils, pressure preference, etc.">
@@ -464,6 +511,7 @@ export function BookPageClient() {
                       { icon: CheckCircle, label: 'Service', value: services.find(s => s.id === form.service)?.label || '—' },
                       { icon: Calendar, label: 'Date', value: form.date ? new Date(form.date + 'T12:00').toLocaleDateString('en-US', { weekday: 'short', month: 'long', day: 'numeric' }) : '—' },
                       { icon: Clock, label: 'Time', value: form.time || '—' },
+                      { icon: Home, label: 'Where', value: form.locationType === 'studio' ? 'Home studio' : form.locationType === 'mobile' ? 'Mobile' : '—' },
                     ].map(({ icon: Icon, label, value }) => (
                       <div key={label} className="flex items-center gap-3 text-sm">
                         <Icon className="w-4 h-4 text-sage-400 flex-shrink-0" />
@@ -515,15 +563,15 @@ export function BookPageClient() {
           >
             <p className="text-sage-400 text-sm mb-4">Prefer to book directly?</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a href="tel:+12145550192"
+              <a href="tel:[PHONE]"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-sage-200 text-sage-600 text-sm hover:bg-sage-50 transition-colors duration-200">
-                <Phone className="w-4 h-4" /> (214) 555-0192
+                <Phone className="w-4 h-4" /> 916-261-5342
               </a>
-              <a href="sms:+12145550192"
+              <a href="sms:[PHONE]"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-sage-200 text-sage-600 text-sm hover:bg-sage-50 transition-colors duration-200">
                 <MessageSquare className="w-4 h-4" /> Text Alina
               </a>
-              <a href="mailto:alina@healingtouchbyalina.com"
+              <a href="mailto:[EMAIL]"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-sage-200 text-sage-600 text-sm hover:bg-sage-50 transition-colors duration-200">
                 <Mail className="w-4 h-4" /> Email
               </a>

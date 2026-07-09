@@ -8,26 +8,44 @@ import { Award, Heart, Leaf, Star, Shield, Users, ArrowRight } from 'lucide-reac
 const certifications = [
   {
     icon: Award,
-    title: 'Licensed Massage Therapist (LMT)',
-    body: 'Texas Department of Licensing & Regulation',
-    year: '2017',
+    title: 'Licensed Massage Therapist (LMT), Texas',
+    body: 'Officially licensed to practice massage therapy in Texas',
+    year: '2026',
+  },
+  {
+    icon: Award,
+    title: 'Massage Therapy Program',
+    body: 'Massage Institute of North Texas, Flower Mound, TX',
+    year: '2025',
+  },
+  {
+    icon: Award,
+    title: 'Licensed Massage Therapist (LMT), Moldova',
+    body: 'Licensed massage therapist trained in Moldova',
+    year: '2019',
+  },
+  {
+    icon: Star,
+    title: 'Massage Therapy Training, Moldova',
+    body: 'Classical, Pediatric & Prenatal Massage and Cupping Therapy',
+    year: '2019',
   },
   {
     icon: Leaf,
     title: 'AMTA Professional Member',
     body: 'American Massage Therapy Association',
-    year: '2017–Present',
+    year: '2025–Present',
   },
   {
     icon: Heart,
     title: 'Certified Prenatal Massage Therapist',
-    body: 'Bodywork for the Childbearing Year',
+    body: 'Sancos Clinic, Moldova',
     year: '2019',
   },
   {
     icon: Star,
     title: 'Hot Stone Massage Certification',
-    body: 'LaStone Therapy Training Program',
+    body: 'Certified in hot stone massage technique',
     year: '2020',
   },
   {
@@ -38,20 +56,19 @@ const certifications = [
   },
   {
     icon: Users,
-    title: 'Continuing Education — 24 CEUs/yr',
-    body: 'Ongoing advanced studies in myofascial release, sports massage & craniosacral therapy',
+    title: 'Continuing Education — 12 CEUs/yr',
+    body: 'Ongoing continuing education to stay current with best practices',
     year: 'Ongoing',
   },
 ];
 
 const milestones = [
-  { year: '2015', event: 'Began studying at the Texas Institute of Massage Therapy' },
-  { year: '2017', event: 'Earned LMT license & joined AMTA' },
-  { year: '2018', event: 'Launched Healing Touch by Alina as a mobile practice in Dallas' },
-  { year: '2019', event: 'Completed prenatal massage certification' },
-  { year: '2020', event: 'Added hot stone & aromatherapy specializations' },
-  { year: '2022', event: 'Surpassed 500+ satisfied clients in the DFW area' },
-  { year: '2024', event: 'Achieved 4.98★ average rating across 87 reviews' },
+  { year: '2019', event: 'Began formal massage training in Moldova — Classical, Pediatric, Prenatal Massage & Cupping Therapy' },
+  { year: '2019', event: 'Earned LMT license in Moldova and began working with clients' },
+  { year: '2023', event: 'Moved to Texas to continue building a career in massage therapy' },
+  { year: '2025', event: 'Completed the Massage Therapy Program at the Massage Institute of North Texas (Flower Mound)' },
+  { year: '2026', event: 'Became a Licensed Massage Therapist (LMT) in Texas' },
+  { year: '2026', event: 'Launched Healing Touch by Alina — home studio & mobile sessions across North Texas' },
 ];
 
 const aboutSchema = {
@@ -66,12 +83,12 @@ const aboutSchema = {
   },
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Dallas',
+    addressLocality: 'Frisco',
     addressRegion: 'TX',
     addressCountry: 'US',
   },
   description:
-    'Licensed massage therapist with 7+ years of experience serving Dallas TX and surrounding areas. Specializing in Swedish, deep tissue, hot stone, and prenatal massage. AMTA member.',
+    'Licensed Massage Therapist serving Frisco TX and North Texas since 2019. Internationally and U.S.-trained, specializing in therapeutic, relaxation, prenatal, pediatric, and CBD oil massage. AMTA member offering in-studio and mobile sessions.',
 };
 
 export function AboutPageClient() {
@@ -122,8 +139,8 @@ export function AboutPageClient() {
             >
               <div className="relative aspect-[3/4] rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(74,102,88,0.15)]">
                 <Image
-                  src="https://images.unsplash.com/photo-1559599101-f09722fb4948?w=800&q=85"
-                  alt="Alina – Licensed Mobile Massage Therapist serving Dallas TX"
+                  src="/alina.png"
+                  alt="Alina – Licensed Massage Therapist serving Frisco TX"
                   fill
                   className="object-cover object-top"
                   sizes="(max-width: 1024px) 100vw, 40vw"
@@ -134,13 +151,13 @@ export function AboutPageClient() {
               {/* Stat cards */}
               <div className="grid grid-cols-3 gap-3 mt-5">
                 {[
-                  { value: '7+', label: 'Years' },
-                  { value: '500+', label: 'Clients' },
-                  { value: '4.98★', label: 'Rating' },
+                  { value: '2019', label: 'Practicing Since' },
+                  { value: 'LMT', label: 'TX Licensed' },
+                  { value: 'Studio & Mobile', label: 'Sessions' },
                 ].map(s => (
                   <div key={s.label} className="bg-white rounded-2xl p-4 text-center shadow-card">
-                    <div className="font-serif text-2xl font-bold text-sage-600">{s.value}</div>
-                    <div className="text-sage-400 text-xs mt-0.5">{s.label}</div>
+                    <div className="font-serif text-lg font-bold text-sage-600 leading-tight">{s.value}</div>
+                    <div className="text-sage-400 text-xs mt-1">{s.label}</div>
                   </div>
                 ))}
               </div>
@@ -160,43 +177,45 @@ export function AboutPageClient() {
 
               <div className="space-y-5 text-sage-600 leading-relaxed mb-10">
                 <p>
-                  Growing up, I watched my mother find relief from chronic migraines through massage 
-                  therapy, and that early experience planted a seed. I saw firsthand how skilled, 
-                  compassionate touch could transform someone's quality of life — not just physically, 
-                  but emotionally too. That seed grew into a calling.
+                  My passion for massage therapy began in childhood, inspired by my family's 
+                  experience with healing through therapeutic touch. I saw firsthand how massage 
+                  could bring real relief, especially when my younger brother needed ongoing care 
+                  for health challenges. That experience showed me the true power of natural, 
+                  hands-on healing.
                 </p>
                 <p>
-                  I enrolled at the <strong className="text-sage-700">Texas Institute of Massage Therapy</strong> in 2015, 
-                  graduating with honors and earning my Texas LMT license in 2017. From day one, I 
-                  knew I wanted to bring this healing directly to people's homes — because the best 
-                  massage is the one where you don't have to drive home afterward.
+                  Motivated by those results, I decided to pursue massage therapy as my profession. 
+                  I began my formal training in <strong className="text-sage-700">Moldova in 2019</strong>, 
+                  where I studied Classical Massage, Pediatric Massage, Prenatal Massage, and Cupping 
+                  Therapy. This foundation gave me hands-on experience working with clients and 
+                  helping them reduce pain, improve mobility, and support their overall well-being.
                 </p>
                 <p>
-                  In 2018, I launched <strong className="text-sage-700">Healing Touch by Alina</strong> as a 
-                  fully mobile practice serving Dallas, TX and surrounding areas. What started as 
-                  a handful of clients through word of mouth has grown into a thriving practice 
-                  with hundreds of satisfied clients across the DFW metroplex.
+                  After moving to Texas, I completed my Massage Therapy Program at the{' '}
+                  <strong className="text-sage-700">Massage Institute of North Texas</strong> in 
+                  Flower Mound. I continued to develop my skills and deepened my understanding of 
+                  professional standards in the United States.
                 </p>
                 <p>
-                  I hold advanced certifications in prenatal massage, hot stone therapy, and 
-                  aromatherapy. I'm a proud member of the American Massage Therapy Association (AMTA) 
-                  and complete 24+ continuing education credits each year to stay current with the 
-                  latest research and techniques.
+                  In <strong className="text-sage-700">2026</strong>, I became a Licensed Massage 
+                  Therapist (LMT) in Texas, officially beginning my professional practice here.
                 </p>
                 <p>
-                  My philosophy is simple: every person who lies on my table deserves my full 
-                  presence, genuine care, and expert attention. I don't rush. I don't cut corners. 
-                  I treat each body as the unique, complex, and worthy thing it is.
+                  Today, I combine my international training and U.S. education to provide safe, 
+                  personalized, and effective massage therapy. I offer services in my home studio 
+                  and through mobile massage sessions across Frisco, Little Elm, McKinney, Prosper, 
+                  and surrounding North Texas areas. Every session is customized to your individual 
+                  needs — whether you are dealing with stress, muscle tension, chronic pain, or 
+                  simply need time to relax and recharge.
                 </p>
                 <blockquote className="border-l-4 border-teal-300 pl-5 py-1 text-lg italic text-sage-500 font-light my-6">
-                  "My goal is not just to help you feel better for an hour — it's to give your 
-                  body the reset it needs to carry you through the week with more ease, energy, 
-                  and joy."
+                  "Healing begins with caring hands."
                 </blockquote>
                 <p>
-                  When I'm not working, you'll find me exploring Dallas's parks with my rescue dog 
-                  Sage, practicing yoga, or tending to my small balcony herb garden. The healing 
-                  arts are not just my profession — they are my life.
+                  My mission is to help you feel better in your body, more relaxed in your mind, 
+                  and supported in your overall well-being. When I'm not working, I spend my free 
+                  time with my daughter and my husband, enjoying family moments and staying 
+                  connected to what matters most to me.
                 </p>
               </div>
 
@@ -274,7 +293,7 @@ export function AboutPageClient() {
             <div className="space-y-8">
               {milestones.map(({ year, event }, i) => (
                 <motion.div
-                  key={year}
+                  key={`${year}-${i}`}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: '-30px' }}
@@ -308,7 +327,7 @@ export function AboutPageClient() {
               Ready to Experience the Difference?
             </h2>
             <p className="text-sage-300 mb-8 font-light text-lg">
-              Book your first mobile massage session in Dallas today. I can't wait to work with you.
+              Book your first massage session in Frisco today — in my home studio or at your location. I can't wait to work with you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/book" className="btn-primary bg-white text-sage-700 hover:bg-beige-100">

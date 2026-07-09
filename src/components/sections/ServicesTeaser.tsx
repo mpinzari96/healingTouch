@@ -7,48 +7,48 @@ import { Clock, ArrowRight } from 'lucide-react';
 
 const services = [
   {
-    id: 'swedish',
-    name: 'Swedish Massage',
+    id: 'therapeutic',
+    name: 'Therapeutic Massage',
     price: '$110',
-    duration: '60 min',
-    image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=600&q=80',
+    duration: 'from 60 min',
+    image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&q=80',
     description:
-      'Gentle, flowing strokes to melt away stress and restore your body\'s natural balance. Perfect for relaxation and first-time clients.',
+      'Focused, results-driven bodywork to relieve pain, release muscle tension, and improve mobility. Ideal for specific problem areas.',
     tag: 'Most Popular',
     color: 'sage',
   },
   {
-    id: 'deep-tissue',
-    name: 'Deep Tissue Massage',
-    price: '$130',
-    duration: '60 min',
-    image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&q=80',
+    id: 'relaxation',
+    name: 'Relaxation Massage',
+    price: '$100',
+    duration: 'from 60 min',
+    image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=600&q=80',
     description:
-      'Targeted, firm pressure to release chronic tension, muscle knots, and deep-seated tightness. Ideal for athletes and active lifestyles.',
+      'Gentle, flowing strokes to melt away stress and restore your body\'s natural balance. Perfect for unwinding and first-time clients.',
     tag: null,
     color: 'teal',
   },
   {
-    id: 'hot-stone',
-    name: 'Hot Stone Massage',
-    price: '$150',
-    duration: '75 min',
-    image: 'https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?w=600&q=80',
-    description:
-      'Heated basalt stones glide over the body, melting muscle tension while promoting deep relaxation and renewed energy.',
-    tag: 'Luxurious',
-    color: 'sage',
-  },
-  {
     id: 'prenatal',
     name: 'Prenatal Massage',
-    price: '$120',
-    duration: '60 min',
-    image: 'https://images.unsplash.com/photo-1601983578764-b9b6ce3da5cb?w=600&q=80',
+    price: '$110',
+    duration: 'from 60 min',
+    image: 'https://images.unsplash.com/photo-1457342813143-a1ae27448a82',
     description:
       'Safe, nurturing care designed for expectant mothers to ease pregnancy discomforts and promote deep relaxation.',
     tag: 'Specialist',
     color: 'teal',
+  },
+  {
+    id: 'cbd-oil',
+    name: 'CBD Oil Massage',
+    price: '$90',
+    duration: 'from 35 min',
+    image: 'https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?w=600&q=80',
+    description:
+      'Massage enhanced with premium CBD oil to soothe sore muscles, calm inflammation, and deepen full-body relaxation.',
+    tag: 'Luxurious',
+    color: 'sage',
   },
 ];
 
@@ -84,8 +84,8 @@ export function ServicesTeaser() {
             <span className="block italic font-light text-sage-400 mt-1">Tailored to You</span>
           </h2>
           <p className="section-subtitle">
-            Every session is customized to your unique needs. I bring all equipment — 
-            massage table, linens, oils, and ambience — directly to your Dallas location.
+            Every session is customized to your unique needs. Visit my home studio in Frisco, or 
+            book a mobile session and I'll bring the full experience to you.
           </p>
         </motion.div>
 
@@ -109,7 +109,7 @@ export function ServicesTeaser() {
               <div className="relative h-48 overflow-hidden">
                 <Image
                   src={service.image}
-                  alt={`${service.name} – Mobile massage in Dallas TX by Healing Touch by Alina`}
+                  alt={`${service.name} – massage in Frisco TX by Healing Touch by Alina`}
                   fill
                   className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
@@ -173,7 +173,7 @@ export function ServicesTeaser() {
           className="text-center mt-12"
         >
           <p className="text-sage-500 mb-5 text-sm">
-            All services available in 60, 75, or 90-minute sessions · Custom packages available
+            Sessions available in a range of durations · Enhancements from $10 · Mobile travel fee from $25
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/services" className="btn-outline">

@@ -3,19 +3,19 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { ArrowRight, Star, Shield, MapPin } from 'lucide-react';
+import { ArrowRight, Award, Shield, MapPin } from 'lucide-react';
 
 export function HeroSection() {
   return (
     <section
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      aria-label="Hero – Healing Touch by Alina mobile massage therapist Dallas"
+      aria-label="Hero – Healing Touch by Alina massage therapist Frisco"
     >
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
           src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=1920&q=85"
-          alt="Calming massage therapy session – Healing Touch by Alina, Dallas TX"
+          alt="Calming massage therapy session – Healing Touch by Alina, Frisco TX"
           fill
           priority
           className="object-cover object-center"
@@ -63,7 +63,7 @@ export function HeroSection() {
           className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/25 bg-white/10 backdrop-blur-sm text-white/90 text-sm font-medium mb-8"
         >
           <MapPin className="w-3.5 h-3.5" />
-          Serving Dallas, TX & Surrounding Areas
+          Serving Frisco, TX & North Texas
         </motion.div>
 
         {/* H1 */}
@@ -86,9 +86,9 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="text-xl sm:text-2xl text-white/80 font-light max-w-2xl mx-auto mb-10 text-balance leading-relaxed"
         >
-          Mobile Massage Therapist in Dallas, TX
+          Licensed Massage Therapist in Frisco, TX
           <span className="block text-lg mt-2 text-white/65">
-            Relax · Restore · Rejuvenate — at Your Home or Office
+            Relax · Restore · Rejuvenate — In-Studio or Mobile to You
           </span>
         </motion.p>
 
@@ -126,16 +126,14 @@ export function HeroSection() {
             Licensed & Insured
           </div>
           <span className="hidden sm:block w-px h-4 bg-white/20" />
-          <div className="flex items-center gap-1.5 text-white/70 text-sm">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-3.5 h-3.5 fill-gold-400 text-gold-400" />
-            ))}
-            <span className="ml-1">4.98 Average Rating</span>
+          <div className="flex items-center gap-2 text-white/70 text-sm">
+            <Award className="w-4 h-4 text-teal-300" />
+            AMTA Member
           </div>
           <span className="hidden sm:block w-px h-4 bg-white/20" />
           <div className="flex items-center gap-2 text-white/70 text-sm">
             <MapPin className="w-4 h-4 text-teal-300" />
-            I Come To You
+            In-Studio & Mobile
           </div>
         </motion.div>
       </div>

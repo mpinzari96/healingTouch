@@ -19,8 +19,8 @@ export async function POST(request: NextRequest) {
     // const { Resend } = require('resend');
     // const resend = new Resend(process.env.RESEND_API_KEY);
     // await resend.emails.send({
-    //   from: 'website@healingtouchbyalina.com',
-    //   to: 'alina@healingtouchbyalina.com',
+    //   from: 'website@[DOMAIN]',
+    //   to: '[EMAIL]',
     //   subject: `New Contact Form: ${subject || 'General Inquiry'} from ${name}`,
     //   html: `
     //     <h2>New Message from Healing Touch Website</h2>
@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
     // });
     // await transporter.sendMail({
     //   from: process.env.GMAIL_USER,
-    //   to: 'alina@healingtouchbyalina.com',
+    //   to: '[EMAIL]',
     //   subject: `New contact from ${name}`,
     //   text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`,
     // });

@@ -2,14 +2,14 @@ import type { Metadata } from 'next';
 import { ContactPageClient } from './ContactPageClient';
 
 export const metadata: Metadata = {
-  title: 'Contact Alina | Mobile Massage Therapist Dallas TX',
+  title: 'Contact Alina | Massage Therapist Frisco TX',
   description:
-    'Contact Healing Touch by Alina — licensed mobile massage therapist in Dallas TX. Call, text, or email to book your in-home massage session. Serving Dallas & surrounding cities.',
+    'Contact Healing Touch by Alina — licensed massage therapist in Frisco TX. Call, text, or email to book your in-studio or mobile massage session. Serving Frisco & North Texas.',
   alternates: { canonical: 'https://healingtouchbyalina.com/contact' },
   openGraph: {
-    title: 'Contacttttt Healing Touch by Alina | Dallas Mobile Massage',
+    title: 'Contact Healing Touch by Alina | Frisco TX Massage',
     description:
-      'Reach out to schedule your in-home massage in Dallas TX. Available by phone, text, email, and WhatsApp. Serving Dallas and all DFW surrounding cities.',
+      'Reach out to schedule your in-studio or mobile massage in Frisco TX. Available by phone, text, email, and WhatsApp. Serving Frisco and North Texas.',
     url: 'https://healingtouchbyalina.com/contact',
   },
 };

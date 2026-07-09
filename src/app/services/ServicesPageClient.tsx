@@ -5,153 +5,173 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Clock, DollarSign, Plus, Minus, CheckCircle, ArrowRight,
-  Leaf, Flame, Baby, Zap, Star, Wind
+  Clock, Plus, Minus, CheckCircle, ArrowRight, MapPin, Sparkles,
+  Leaf, Baby, Zap, Star, Wind
 } from 'lucide-react';
 
 /* ─── DATA ─────────────────────────────────────────── */
 
 const services = [
   {
-    id: 'swedish',
-    name: 'Swedish Massage',
-    icon: Wind,
-    tagline: 'The Classic Relaxation Experience',
-    price: { '60': 110, '75': 130, '90': 150 },
-    image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=900&q=85',
+    id: 'therapeutic',
+    name: 'Therapeutic Massage',
+    icon: Zap,
+    tagline: 'Targeted Relief for Pain & Tension',
+    price: { '60': 110, '90': 150, '120': 190 },
+    image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=900&q=85',
     tag: 'Most Popular',
     tagColor: 'bg-teal-500',
     description:
-      'Swedish massage is the cornerstone of relaxation therapy. Using long, gliding strokes (effleurage), kneading (petrissage), and gentle rhythmic tapping (tapotement), this modality works to melt tension from the surface muscles while calming the nervous system.',
+      'Focused, results-driven bodywork that combines firm pressure and proven techniques to release chronic muscle tension, ease pain, and improve mobility. Ideal when you have specific problem areas that need attention.',
+    benefits: [
+      'Relieves chronic back, neck, and shoulder pain',
+      'Releases deep muscle tension and knots',
+      'Improves range of motion and mobility',
+      'Reduces inflammation and soreness',
+      'Supports recovery from everyday strain',
+      'Customized to your specific problem areas',
+    ],
+    ideal: 'Anyone dealing with chronic pain, muscle tightness, or postural tension.',
+    note: null,
+  },
+  {
+    id: 'relaxation',
+    name: 'Relaxation Massage',
+    icon: Wind,
+    tagline: 'Calm the Body, Quiet the Mind',
+    price: { '60': 100, '90': 145, '120': 180 },
+    image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=900&q=85',
+    tag: null,
+    tagColor: '',
+    description:
+      'Gentle, flowing strokes designed to calm the nervous system, melt away stress, and restore balance. A soothing, full-body experience perfect for unwinding and recharging.',
     benefits: [
       'Reduces stress hormones (cortisol)',
-      'Improves blood circulation throughout the body',
-      'Eases muscle tension and soreness',
+      'Improves circulation throughout the body',
+      'Eases everyday muscle tension',
       'Promotes deep, restful sleep',
-      'Boosts immune system function',
+      'Calms the mind and lifts mood',
       'Perfect for first-time massage clients',
     ],
-    ideal: 'Anyone seeking relaxation, stress relief, or a first massage experience.',
-  },
-  {
-    id: 'deep-tissue',
-    name: 'Deep Tissue Massage',
-    icon: Zap,
-    tagline: 'Targeted Relief for Chronic Tension',
-    price: { '60': 130, '75': 155, '90': 175 },
-    image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=900&q=85',
-    tag: 'Therapeutic',
-    tagColor: 'bg-sage-500',
-    description:
-      'Deep tissue massage uses slow, deliberate strokes and firm pressure to reach the deeper layers of muscle and connective tissue (fascia). It\'s particularly effective for chronically tense areas, adhesions, and postural problems that form from repetitive movement or injury.',
-    benefits: [
-      'Breaks up scar tissue and muscle adhesions',
-      'Relieves chronic back, neck, and shoulder pain',
-      'Reduces inflammation and improves mobility',
-      'Accelerates recovery after athletic activity',
-      'Lowers blood pressure',
-      'Treats repetitive strain injuries',
-    ],
-    ideal: 'Athletes, office workers, or anyone with chronic muscle pain or tension.',
-  },
-  {
-    id: 'hot-stone',
-    name: 'Hot Stone Massage',
-    icon: Flame,
-    tagline: 'Ancient Warmth, Modern Healing',
-    price: { '75': 150, '90': 175 },
-    image: 'https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?w=900&q=85',
-    tag: 'Luxurious',
-    tagColor: 'bg-gold-500',
-    description:
-      'Smooth basalt volcanic stones are heated to the perfect temperature and used as an extension of my hands — gliding along muscle groups, placed at key energy centers, and used to melt away even the deepest tension. The heat penetrates 3–4 times deeper than manual pressure alone.',
-    benefits: [
-      'Heat penetrates deeply into muscle tissue',
-      'Dramatically reduces muscle spasms',
-      'Improves circulation and lymphatic flow',
-      'Promotes a profound sense of calm',
-      'Balances energy and restores equilibrium',
-      'Exceptional stress and anxiety relief',
-    ],
-    ideal: 'Anyone needing deep relaxation, especially in colder months or those with muscle stiffness.',
+    ideal: 'Anyone seeking stress relief, relaxation, or a first massage experience.',
+    note: null,
   },
   {
     id: 'prenatal',
     name: 'Prenatal Massage',
     icon: Baby,
     tagline: 'Nurturing Care for Expecting Mothers',
-    price: { '60': 120, '75': 140, '90': 160 },
-    image: 'https://images.unsplash.com/photo-1601983578764-b9b6ce3da5cb?w=900&q=85',
+    price: { '60': 110, '90': 130 },
+    image: 'https://images.unsplash.com/photo-1457342813143-a1ae27448a82',
     tag: 'Specialist',
     tagColor: 'bg-teal-400',
     description:
-      'Specifically designed for expecting mothers from the second trimester onward, prenatal massage uses side-lying positioning with supportive bolsters to ensure complete comfort and safety. Gentle, targeted techniques address the unique discomforts of pregnancy.',
+      'Specially designed for expecting mothers, prenatal massage uses side-lying positioning with supportive bolsters to ensure complete comfort and safety. Gentle, targeted techniques address the unique discomforts of pregnancy.',
     benefits: [
       'Reduces back, hip, and joint pain',
       'Decreases swelling in legs and feet',
-      'Lowers stress hormones for healthier pregnancy',
+      'Lowers stress for a healthier pregnancy',
       'Improves sleep quality',
-      'Reduces anxiety and depression symptoms',
-      'Certified safe from 2nd trimester onward',
+      'Eases anxiety and tension',
+      'Safe, supportive positioning throughout',
     ],
-    ideal: 'Expectant mothers from second trimester through late pregnancy.',
+    ideal: 'Expectant mothers seeking safe, soothing relief from pregnancy discomforts.',
+    note: null,
   },
   {
-    id: 'sports',
-    name: 'Sports Massage',
-    icon: Zap,
-    tagline: 'Performance, Recovery & Prevention',
-    price: { '60': 135, '75': 160, '90': 180 },
-    image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=900&q=85',
-    tag: null,
-    tagColor: '',
+    id: 'pediatric',
+    name: 'Pediatric Massage',
+    icon: Star,
+    tagline: 'Gentle Care for Ages 5–17',
+    price: { '30': 50, '45': 70, '60': 90 },
+    image: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=900&q=85',
+    tag: 'Ages 5–17',
+    tagColor: 'bg-sage-500',
     description:
-      'Sports massage combines several techniques including deep tissue, stretching, and compression to address the specific needs of athletes. Whether pre-event, post-event, or for general maintenance, sports massage keeps your body performing at its peak.',
+      'Gentle, age-appropriate massage that helps children relax, ease growing pains and tension, and support healthy development. Techniques are always adapted to the child\'s age and comfort.',
     benefits: [
-      'Reduces DOMS (delayed onset muscle soreness)',
-      'Increases flexibility and range of motion',
-      'Prevents sport-related injuries',
-      'Speeds up recovery between training sessions',
-      'Improves athletic performance',
-      'Treats existing sports injuries',
+      'Eases growing pains and muscle tension',
+      'Supports relaxation and better sleep',
+      'Helps reduce stress and restlessness',
+      'Encourages healthy body awareness',
+      'Gentle, age-appropriate techniques',
+      'Comfortable, reassuring environment',
     ],
-    ideal: 'Athletes, runners, gym enthusiasts, and active individuals.',
+    ideal: 'Children ages 5–17 who could benefit from gentle, supportive massage.',
+    note: 'Parent or guardian consent is required, and a parent/guardian must be present for the session.',
   },
   {
-    id: 'couples',
-    name: 'Couples Massage',
+    id: 'infant',
+    name: 'Infant Massage',
+    icon: Baby,
+    tagline: 'A Parent-Guided Educational Session',
+    price: { '30': 50 },
+    image: 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=900&q=85',
+    tag: 'Parent-Guided',
+    tagColor: 'bg-teal-400',
+    description:
+      'An educational session where I guide you, the parent, through safe and soothing massage techniques for your baby. You learn hands-on how to comfort your infant, support bonding, and ease common discomforts.',
+    benefits: [
+      'Learn safe, soothing infant massage techniques',
+      'Supports parent–baby bonding',
+      'May help ease gas, colic, and fussiness',
+      'Encourages better sleep for baby',
+      'Builds parenting confidence',
+      'A calming routine you can continue at home',
+    ],
+    ideal: 'Parents who want to learn nurturing massage techniques for their baby.',
+    note: 'This is a parent-guided educational session — techniques are taught to and performed by the parent.',
+  },
+  {
+    id: 'cbd-oil',
+    name: 'CBD Oil Massage',
     icon: Leaf,
-    tagline: 'Shared Relaxation, Twice the Bliss',
-    price: { '60': 220, '75': 260, '90': 295 },
-    image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=900&q=85',
-    tag: 'Special',
-    tagColor: 'bg-rose-400',
+    tagline: 'Soothe Sore Muscles, Deepen Relaxation',
+    price: { '35': 90, '60': 125, '90': 160, '120': 190 },
+    image: 'https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?w=900&q=85',
+    tag: 'Luxurious',
+    tagColor: 'bg-gold-500',
     description:
-      'Experience the joy of relaxing together. I partner with a trusted colleague to provide simultaneous massages in your home for you and your partner (or friend). Perfect for date nights, anniversaries, or simply sharing the gift of healing with someone you love.',
+      'Massage enhanced with premium CBD oil to soothe sore muscles, calm inflammation, and deepen full-body relaxation. The CBD works alongside skilled hands-on techniques for an especially restorative experience.',
     benefits: [
-      'Simultaneous massage for two people',
-      'Strengthens bond through shared experience',
-      'Customizable — each person gets their preferred style',
-      'Perfect for special occasions',
-      'Private, comfortable home setting',
-      'Romantic and relaxing atmosphere',
+      'Helps soothe sore, tired muscles',
+      'May reduce inflammation and tension',
+      'Deepens relaxation and calm',
+      'Nourishes and hydrates the skin',
+      'Complements therapeutic or relaxation work',
+      'Available in short or full-length sessions',
     ],
-    ideal: 'Couples, best friends, or anyone wanting to share a spa experience.',
+    ideal: 'Anyone wanting extra relief for sore muscles and deeper relaxation.',
+    note: null,
   },
+];
+
+const enhancements = [
+  'Cupping Therapy',
+  'Aromatherapy',
+  'Hot Stone Therapy',
+  'Scalp Massage',
+  'Hydrating Face Mask',
+  'Cooling Eye Mask',
+  'Foot Mask',
 ];
 
 const faqs = [
   {
-    q: 'Do you travel to my location in Dallas and surrounding cities?',
-    a: 'Yes! I\'m a fully mobile massage therapist serving Dallas and surrounding areas including Plano, Frisco, McKinney, Richardson, Garland, Irving, Carrollton, Allen, and more. A small travel fee may apply for locations 20+ miles from central Dallas. Please contact me to confirm service in your area.',
+    q: 'Do you offer both in-studio and mobile massage?',
+    a: 'Yes! You can visit me in my comfortable home studio, or I can bring the full massage experience to you with a mobile session. Mobile massage is available in Frisco, Little Elm, McKinney, Prosper, Allen, Plano, and surrounding North Texas areas.',
   },
   {
-    q: 'What should I expect during my first in-home massage session?',
-    a: 'I\'ll arrive 10–15 minutes before your session to set up my professional massage table, arrange soft lighting and ambient music, and prepare your space. We\'ll have a brief intake conversation about your health history, problem areas, and goals. Then you\'ll have privacy to undress to your comfort level and lie on the table under soft, high-quality linens. After the session, I\'ll give you water and time to rest before packing up and leaving quietly.',
+    q: 'How does the mobile massage travel fee work?',
+    a: 'For mobile sessions, a travel fee starting at $25 applies and is based on the distance to your location. Just let me know your city or address when booking and I\'ll confirm the exact travel fee before your appointment.',
   },
   {
-    q: 'What do I need to provide for the massage?',
-    a: 'Absolutely nothing! I bring everything — a professional portable massage table, fresh linens and face cradle cover, premium organic massage oils and lotions, an aromatherapy diffuser, ambient music, and all necessary equipment. You just need to provide a clear space about 7x10 feet for the table.',
+    q: 'What should I expect during my first session?',
+    a: 'We\'ll start with a brief intake conversation about your health history, problem areas, and goals. For studio visits, everything is set up and ready for you. For mobile sessions, I arrive 10–15 minutes early to set up my professional table, soft linens, and a calming atmosphere. You\'ll have privacy to get comfortable on the table, and after the session you\'ll have time to rest and rehydrate.',
+  },
+  {
+    q: 'What do I need to provide for a mobile massage?',
+    a: 'Almost nothing! I bring everything — a professional portable massage table, fresh linens, premium massage oils, and a calming ambience. For a mobile session, you just need to provide a clear space about 7x10 feet for the table.',
   },
   {
     q: 'What is your cancellation and rescheduling policy?',
@@ -159,19 +179,19 @@ const faqs = [
   },
   {
     q: 'Is massage therapy safe during pregnancy?',
-    a: 'Yes, prenatal massage is safe from the second trimester (14+ weeks) onward when performed by a certified therapist. I use specialized side-lying positioning with supportive bolsters designed for pregnant clients. I recommend consulting your OB/GYN before booking, especially if you have a high-risk pregnancy. I do not perform massage in the first trimester.',
+    a: 'Yes, prenatal massage is a safe, supportive way to ease pregnancy discomforts when performed by a trained therapist. I use specialized side-lying positioning with supportive bolsters designed for pregnant clients. I recommend consulting your OB/GYN before booking, especially if you have a high-risk pregnancy.',
+  },
+  {
+    q: 'Do you work with children and infants?',
+    a: 'Yes. Pediatric massage is available for children ages 5–17 with parent or guardian consent, and a parent/guardian must be present. I also offer infant massage as a parent-guided educational session, where I teach you safe, soothing techniques to use with your baby at home.',
   },
   {
     q: 'How do I pay for my massage session?',
-    a: 'I accept cash, all major credit and debit cards, Venmo, Zelle, and Apple Pay. Payment is collected at the time of service. Tips are always appreciated but never required.',
+    a: 'I accept cash, all major credit and debit cards, Venmo, and Zelle. Payment is collected at the time of service. Tips are always appreciated but never required.',
   },
   {
-    q: 'How often should I get a massage?',
-    a: 'For general wellness and stress management, once or twice a month is ideal. For chronic pain or injury recovery, I may recommend weekly sessions initially. Athletes often benefit from bi-weekly sessions around training cycles. During your first session, I\'ll assess your needs and recommend a personalized treatment frequency.',
-  },
-  {
-    q: 'Do you offer gift certificates?',
-    a: 'Yes! Gift certificates are available for any service or dollar amount. They make perfect gifts for holidays, birthdays, baby showers, or any special occasion. Contact me to purchase via text or email and I\'ll send a beautiful digital gift certificate within 24 hours.',
+    q: 'Do you offer gift cards?',
+    a: 'Yes! A Healing Touch by Alina gift card is the perfect gift for birthdays, holidays, Mother\'s Day, or simply to show appreciation. Reach out and I\'ll help you purchase one for someone you love.',
   },
 ];
 
@@ -196,7 +216,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
       <div className="relative h-56 overflow-hidden">
         <Image
           src={service.image}
-          alt={`${service.name} – mobile massage in Dallas TX by Healing Touch by Alina`}
+          alt={`${service.name} – massage in Frisco TX by Healing Touch by Alina`}
           fill
           className="object-cover transition-transform duration-700 group-hover:scale-105"
           sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
@@ -243,6 +263,14 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
         <p className="text-xs text-sage-400 italic border-t border-sage-50 pt-4 mb-5">
           <span className="font-semibold not-italic text-sage-500">Ideal for:</span> {service.ideal}
         </p>
+
+        {/* Note (e.g. consent / educational) */}
+        {service.note && (
+          <div className="flex items-start gap-2 text-xs text-sage-600 bg-sage-50 rounded-xl p-3 mb-5">
+            <CheckCircle className="w-4 h-4 text-teal-500 mt-0.5 flex-shrink-0" />
+            <span>{service.note}</span>
+          </div>
+        )}
 
         {/* Pricing */}
         <div className="bg-beige-100 rounded-2xl p-4 mb-5">
@@ -378,9 +406,9 @@ export function ServicesPageClient() {
             transition={{ duration: 0.75, delay: 0.1 }}
             className="text-5xl md:text-6xl font-serif font-semibold text-white mb-5"
           >
-            Mobile Massage Services
+            Massage Services
             <span className="block italic font-light text-white/65 text-4xl md:text-5xl mt-2">
-              Delivered to You in Dallas, TX
+              In-Studio & Mobile in Frisco, TX
             </span>
           </motion.h1>
           <motion.p
@@ -389,8 +417,8 @@ export function ServicesPageClient() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-white/70 text-lg max-w-2xl mx-auto font-light"
           >
-            Every service is fully mobile — I bring my professional table, oils, linens, and 
-            ambience directly to your Dallas home or office. All sessions are customized to your needs.
+            Visit my home studio or book a mobile session and I&apos;ll bring my professional table, oils, 
+            linens, and calming ambience to you. Every session is customized to your individual needs.
           </motion.p>
         </div>
       </section>
@@ -399,7 +427,7 @@ export function ServicesPageClient() {
       <section className="py-20 bg-cream" aria-labelledby="services-grid-heading">
         <div className="max-w-7xl mx-auto px-6">
           <h2 id="services-grid-heading" className="sr-only">
-            All massage therapy services in Dallas TX
+            All massage therapy services in Frisco TX
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             {services.map((service, i) => (
@@ -409,27 +437,72 @@ export function ServicesPageClient() {
         </div>
       </section>
 
-      {/* Add-on note */}
-      <section className="py-16 bg-beige-100">
-        <div className="max-w-4xl mx-auto px-6 text-center">
+      {/* Enhancements & Mobile */}
+      <section className="py-20 bg-beige-100" aria-labelledby="enhancements-heading">
+        <div className="max-w-5xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="text-center mb-12"
           >
-            <p className="section-label mb-4">Custom Sessions</p>
-            <h2 className="section-title mb-4">Make It Yours</h2>
-            <p className="section-subtitle max-w-xl mx-auto mb-8">
-              All sessions are available in 60, 75, or 90-minute durations. 
-              Add-ons like aromatherapy enhancements, CBD oil upgrade, or targeted focus areas 
-              can be requested when booking.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/book" className="btn-primary">Book Your Session</Link>
-              <Link href="/contact" className="btn-outline">Ask a Question</Link>
-            </div>
+            <p className="section-label mb-4">Make It Yours</p>
+            <h2 id="enhancements-heading" className="section-title">Enhancements & Mobile Service</h2>
           </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Enhancements */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.6 }}
+              className="bg-white rounded-3xl shadow-card p-8"
+            >
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-11 h-11 rounded-xl bg-sage-50 flex items-center justify-center flex-shrink-0">
+                  <Sparkles className="w-5 h-5 text-sage-500" />
+                </div>
+                <h3 className="font-serif text-2xl font-semibold text-sage-800">Massage Enhancements</h3>
+              </div>
+              <p className="text-teal-500 text-sm font-medium mb-6">Add any enhancement — $10 each</p>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+                {enhancements.map(item => (
+                  <li key={item} className="flex items-start gap-2.5 text-sm text-sage-600">
+                    <CheckCircle className="w-4 h-4 text-teal-400 mt-0.5 flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Mobile massage */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-white rounded-3xl shadow-card p-8 flex flex-col"
+            >
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-11 h-11 rounded-xl bg-sage-50 flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-5 h-5 text-sage-500" />
+                </div>
+                <h3 className="font-serif text-2xl font-semibold text-sage-800">Mobile Massage</h3>
+              </div>
+              <p className="text-teal-500 text-sm font-medium mb-6">Travel fee starting at $25 based on distance</p>
+              <p className="text-sage-500 text-sm leading-relaxed mb-6">
+                Prefer to relax at home? I bring the full experience to you. Mobile massage is available in{' '}
+                <strong className="text-sage-700">Frisco, Little Elm, McKinney, Prosper, Allen, Plano</strong>, 
+                and surrounding North Texas areas. You can also visit me in my comfortable home studio.
+              </p>
+              <div className="mt-auto flex flex-col sm:flex-row gap-3">
+                <Link href="/book" className="btn-primary">Book Your Session</Link>
+                <Link href="/contact" className="btn-outline">Ask a Question</Link>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -448,7 +521,7 @@ export function ServicesPageClient() {
               Frequently Asked Questions
             </h2>
             <p className="section-subtitle">
-              Everything you need to know about booking a mobile massage therapist in Dallas, TX.
+              Everything you need to know about booking a massage therapist in Frisco, TX.
             </p>
           </motion.div>
 

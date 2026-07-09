@@ -6,9 +6,9 @@ import { Home, Lock, UserCheck, Sparkles, Clock, Heart } from 'lucide-react';
 const reasons = [
   {
     icon: Home,
-    title: 'Ultimate Convenience',
+    title: 'Studio or Mobile',
     description:
-      'No commute, no parking, no waiting rooms. I come fully equipped to your Dallas home, hotel, or office — so you can relax from the moment we start.',
+      'Visit my calming home studio in Frisco, or book a mobile session and I\'ll come fully equipped to you — whichever fits your comfort and schedule best.',
   },
   {
     icon: Lock,
@@ -38,7 +38,7 @@ const reasons = [
     icon: Heart,
     title: 'Deeply Trained & Caring',
     description:
-      'With 7+ years of hands-on experience and continuous education, I bring genuine expertise and heartfelt care to every single session.',
+      'With international and U.S. training since 2019 and ongoing continuing education, I bring genuine expertise and heartfelt care to every single session.',
   },
 ];
 
@@ -82,21 +82,21 @@ export function WhyChooseSection() {
               </span>
             </h2>
             <p className="section-subtitle mb-8 max-w-md">
-              Choosing a mobile massage therapist means choosing your comfort, your schedule, 
-              and your space. Here's why Dallas clients keep coming back.
+              Choosing the right massage therapist means choosing your comfort, your schedule, 
+              and your space. Here's what sets my practice apart.
             </p>
             <div className="flex gap-8">
               <div className="text-center">
-                <div className="text-4xl font-serif font-bold text-sage-600">87+</div>
-                <div className="text-sage-400 text-sm mt-1">5-Star Reviews</div>
+                <div className="text-4xl font-serif font-bold text-sage-600">2019</div>
+                <div className="text-sage-400 text-sm mt-1">Practicing Since</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-serif font-bold text-sage-600">7+</div>
-                <div className="text-sage-400 text-sm mt-1">Years Experience</div>
+                <div className="text-4xl font-serif font-bold text-sage-600">LMT</div>
+                <div className="text-sage-400 text-sm mt-1">Texas Licensed</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-serif font-bold text-sage-600">500+</div>
-                <div className="text-sage-400 text-sm mt-1">Happy Clients</div>
+                <div className="text-4xl font-serif font-bold text-sage-600">100%</div>
+                <div className="text-sage-400 text-sm mt-1">Customized Care</div>
               </div>
             </div>
           </motion.div>

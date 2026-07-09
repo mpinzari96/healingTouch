@@ -9,22 +9,22 @@ const BASE_URL = 'https://healingtouchbyalina.com';
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'Healing Touch by Alina | Mobile Massage Therapist Dallas TX',
-    template: '%s | Healing Touch by Alina – Dallas Massage Therapist',
+    default: 'Healing Touch by Alina | Massage Therapist Frisco TX',
+    template: '%s | Healing Touch by Alina – Frisco Massage Therapist',
   },
   description:
-    'Licensed mobile massage therapist serving Dallas, TX & surrounding areas. Swedish, deep tissue, hot stone & prenatal massage delivered to your home or office. Book today!',
+    'Licensed massage therapist serving Frisco, TX & North Texas. Therapeutic, relaxation, prenatal, pediatric & CBD oil massage in-studio or mobile. Book today!',
   keywords: [
-    'massage therapist Dallas',
-    'mobile massage Dallas TX',
-    'in-home massage Dallas',
+    'massage therapist Frisco',
+    'mobile massage Frisco TX',
+    'in-home massage Frisco',
     'Healing Touch by Alina',
-    'Swedish massage Dallas',
-    'deep tissue massage near me',
-    'prenatal massage Dallas',
-    'hot stone massage Dallas',
-    'mobile massage therapist Texas',
-    'in-home massage therapist Dallas',
+    'therapeutic massage Frisco',
+    'relaxation massage near me',
+    'prenatal massage Frisco',
+    'CBD oil massage Frisco',
+    'pediatric massage North Texas',
+    'massage therapist North Texas',
   ],
   authors: [{ name: 'Alina', url: BASE_URL }],
   creator: 'Healing Touch by Alina',
@@ -35,23 +35,23 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: BASE_URL,
     siteName: 'Healing Touch by Alina',
-    title: 'Healing Touch by Alina | Mobile Massage Therapist Dallas TX',
+    title: 'Healing Touch by Alina | Massage Therapist Frisco TX',
     description:
-      'Licensed mobile massage therapist serving Dallas, TX & surrounding areas. Swedish, deep tissue, hot stone & prenatal massage — I come to you!',
+      'Licensed massage therapist serving Frisco, TX & North Texas. Therapeutic, relaxation, prenatal, pediatric & CBD oil massage — in-studio or mobile.',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Healing Touch by Alina – Mobile Massage Therapist in Dallas, TX',
+        alt: 'Healing Touch by Alina – Massage Therapist in Frisco, TX',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Healing Touch by Alina | Mobile Massage Therapist Dallas TX',
+    title: 'Healing Touch by Alina | Massage Therapist Frisco TX',
     description:
-      'Licensed mobile massage therapist serving Dallas, TX. Swedish, deep tissue, hot stone & prenatal massage delivered to your home.',
+      'Licensed massage therapist serving Frisco, TX & North Texas. Therapeutic, relaxation, prenatal & CBD oil massage — in-studio or mobile.',
     images: ['/og-image.jpg'],
   },
   robots: {
@@ -81,30 +81,28 @@ const localBusinessSchema = {
       '@id': `${BASE_URL}/#business`,
       name: 'Healing Touch by Alina',
       description:
-        'Licensed mobile massage therapist serving Dallas, TX and surrounding areas. Specializing in Swedish, deep tissue, hot stone, and prenatal massage delivered directly to your home or office.',
+        'Licensed massage therapist serving Frisco, TX and the surrounding North Texas area. Specializing in therapeutic, relaxation, prenatal, pediatric, and CBD oil massage — offered in a home studio and through mobile sessions.',
       url: BASE_URL,
-      telephone: '+1-214-555-0192',
-      email: 'alina@healingtouchbyalina.com',
+      telephone: '[PHONE]',
+      email: '[EMAIL]',
       priceRange: '$$',
       currenciesAccepted: 'USD',
       paymentAccepted: 'Cash, Credit Card, Venmo, Zelle',
       areaServed: [
-        { '@type': 'City', name: 'Dallas', containedInPlace: { '@type': 'State', name: 'Texas' } },
-        { '@type': 'City', name: 'Plano' },
-        { '@type': 'City', name: 'Frisco' },
+        { '@type': 'City', name: 'Frisco', containedInPlace: { '@type': 'State', name: 'Texas' } },
+        { '@type': 'City', name: 'Little Elm' },
         { '@type': 'City', name: 'McKinney' },
-        { '@type': 'City', name: 'Richardson' },
-        { '@type': 'City', name: 'Garland' },
-        { '@type': 'City', name: 'Irving' },
-        { '@type': 'City', name: 'Carrollton' },
+        { '@type': 'City', name: 'Prosper' },
+        { '@type': 'City', name: 'Allen' },
+        { '@type': 'City', name: 'Plano' },
       ],
       address: {
         '@type': 'PostalAddress',
-        addressLocality: 'Dallas',
+        addressLocality: 'Frisco',
         addressRegion: 'TX',
         addressCountry: 'US',
       },
-      geo: { '@type': 'GeoCoordinates', latitude: 32.7767, longitude: -96.797 },
+      geo: { '@type': 'GeoCoordinates', latitude: 33.1507, longitude: -96.8236 },
       openingHoursSpecification: [
         {
           '@type': 'OpeningHoursSpecification',
@@ -119,12 +117,6 @@ const localBusinessSchema = {
           closes: '18:00',
         },
       ],
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '4.98',
-        reviewCount: '87',
-        bestRating: '5',
-      },
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
         name: 'Massage Services',
@@ -133,9 +125,9 @@ const localBusinessSchema = {
             '@type': 'Offer',
             itemOffered: {
               '@type': 'Service',
-              name: 'Swedish Massage',
+              name: 'Therapeutic Massage',
               description:
-                'Gentle, flowing strokes to relax muscles, improve circulation, and reduce stress. Perfect for first-time massage clients.',
+                'Focused, results-driven bodywork to relieve pain, release muscle tension, and improve mobility.',
             },
             price: '110',
             priceCurrency: 'USD',
@@ -145,23 +137,11 @@ const localBusinessSchema = {
             '@type': 'Offer',
             itemOffered: {
               '@type': 'Service',
-              name: 'Deep Tissue Massage',
+              name: 'Relaxation Massage',
               description:
-                'Targets chronic muscle tension and knots with firm, focused pressure. Ideal for athletes and those with chronic pain.',
+                'Gentle, flowing strokes to calm the nervous system, ease stress, and restore balance.',
             },
-            price: '130',
-            priceCurrency: 'USD',
-            eligibleDuration: 'PT60M',
-          },
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Hot Stone Massage',
-              description:
-                'Heated basalt stones melt away tension and promote deep relaxation. A luxurious experience for body and mind.',
-            },
-            price: '150',
+            price: '100',
             priceCurrency: 'USD',
             eligibleDuration: 'PT60M',
           },
@@ -173,15 +153,51 @@ const localBusinessSchema = {
               description:
                 'Safe, nurturing massage designed for expectant mothers. Reduces pregnancy discomforts and promotes relaxation.',
             },
-            price: '120',
+            price: '110',
             priceCurrency: 'USD',
             eligibleDuration: 'PT60M',
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Pediatric Massage',
+              description:
+                'Gentle, age-appropriate massage for children ages 5–17. Parent or guardian consent required.',
+            },
+            price: '50',
+            priceCurrency: 'USD',
+            eligibleDuration: 'PT30M',
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Infant Massage',
+              description:
+                'A parent-guided educational session teaching soothing massage techniques for your baby.',
+            },
+            price: '50',
+            priceCurrency: 'USD',
+            eligibleDuration: 'PT30M',
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'CBD Oil Massage',
+              description:
+                'Massage enhanced with premium CBD oil to soothe sore muscles and deepen relaxation.',
+            },
+            price: '90',
+            priceCurrency: 'USD',
+            eligibleDuration: 'PT35M',
           },
         ],
       },
       sameAs: [
-        'https://www.instagram.com/healingtouchbyalina',
-        'https://www.facebook.com/healingtouchbyalina',
+        '[INSTAGRAM_URL]',
+        '[FACEBOOK_URL]',
       ],
     },
     {
@@ -189,7 +205,7 @@ const localBusinessSchema = {
       '@id': `${BASE_URL}/#website`,
       url: BASE_URL,
       name: 'Healing Touch by Alina',
-      description: 'Mobile Massage Therapist in Dallas, TX',
+      description: 'Massage Therapist in Frisco, TX — in-studio & mobile sessions',
       publisher: { '@id': `${BASE_URL}/#business` },
     },
   ],

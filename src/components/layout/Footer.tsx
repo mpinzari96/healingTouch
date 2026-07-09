@@ -10,10 +10,10 @@ const quickLinks = [
 ];
 
 const services = [
-  { href: '/services#swedish', label: 'Swedish Massage' },
-  { href: '/services#deep-tissue', label: 'Deep Tissue Massage' },
-  { href: '/services#hot-stone', label: 'Hot Stone Massage' },
+  { href: '/services#therapeutic', label: 'Therapeutic Massage' },
+  { href: '/services#relaxation', label: 'Relaxation Massage' },
   { href: '/services#prenatal', label: 'Prenatal Massage' },
+  { href: '/services#cbd-oil', label: 'CBD Oil Massage' },
 ];
 
 export function Footer() {
@@ -40,12 +40,12 @@ export function Footer() {
               </div>
             </Link>
             <p className="text-sage-300 text-sm leading-relaxed mb-5">
-              Licensed mobile massage therapist serving Dallas, TX and surrounding areas. 
-              I bring the spa experience directly to you.
+              Licensed massage therapist serving Frisco, TX and North Texas. 
+              Sessions in my home studio or mobile to you.
             </p>
             <div className="flex items-center gap-3">
               <a
-                href="https://www.instagram.com/healingtouchbyalina"
+                href="[INSTAGRAM_URL]"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-sage-700 flex items-center justify-center text-sage-300 hover:bg-sage-600 hover:text-white transition-colors duration-200"
@@ -54,7 +54,7 @@ export function Footer() {
                 <Instagram className="w-4 h-4" />
               </a>
               <a
-                href="https://www.facebook.com/healingtouchbyalina"
+                href="[FACEBOOK_URL]"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-sage-700 flex items-center justify-center text-sage-300 hover:bg-sage-600 hover:text-white transition-colors duration-200"
@@ -105,26 +105,26 @@ export function Footer() {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="tel:+12145550192"
+                  href="tel:[PHONE]"
                   className="flex items-start gap-3 text-sage-300 hover:text-sage-100 text-sm transition-colors duration-200 group"
                 >
                   <Phone className="w-4 h-4 mt-0.5 text-teal-400 group-hover:text-teal-300 flex-shrink-0" />
-                  (214) 555-0192
+                  916-261-5342
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:alina@healingtouchbyalina.com"
+                  href="mailto:[EMAIL]"
                   className="flex items-start gap-3 text-sage-300 hover:text-sage-100 text-sm transition-colors duration-200 group"
                 >
                   <Mail className="w-4 h-4 mt-0.5 text-teal-400 group-hover:text-teal-300 flex-shrink-0" />
-                  alina@healingtouchbyalina.com
+                  Healingtouchbyalina@gmail.com
                 </a>
               </li>
               <li>
                 <div className="flex items-start gap-3 text-sage-300 text-sm">
                   <MapPin className="w-4 h-4 mt-0.5 text-teal-400 flex-shrink-0" />
-                  <span>Dallas, TX & Surrounding Areas<br />(Mobile Service Only)</span>
+                  <span>Frisco, TX & North Texas<br />(Home Studio & Mobile)</span>
                 </div>
               </li>
             </ul>
@@ -135,20 +135,20 @@ export function Footer() {
               <div className="w-full h-32 bg-sage-700 flex items-center justify-center">
                 <div className="text-center">
                   <MapPin className="w-6 h-6 text-teal-400 mx-auto mb-1" />
-                  <span className="text-sage-400 text-xs">Dallas, TX Area</span>
+                  <span className="text-sage-400 text-xs">Frisco, TX Area</span>
                 </div>
               </div>
               {/* 
-                Production: Replace above div with:
+                Production: Replace above div with a Google Maps embed for Frisco, TX, e.g.:
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d429217.4274453!2d-97.07296937808744!3d32.82097619699905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c19f77b45974b%3A0xb9ec9ba4f647678f!2sDallas%2C%20TX!5e0!3m2!1sen!2sus!4v1703000000000!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=YOUR_FRISCO_TX_EMBED"
                   width="100%"
                   height="128"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Healing Touch by Alina – Dallas TX service area"
+                  title="Healing Touch by Alina – Frisco TX service area"
                 />
               */}
             </div>
@@ -163,7 +163,7 @@ export function Footer() {
             © {year} Healing Touch by Alina. All rights reserved.
           </p>
           <p className="text-sage-500 text-xs flex items-center gap-1.5">
-            Made with <Heart className="w-3 h-3 text-rose-400 fill-rose-400" /> in Dallas, TX
+            Made with <Heart className="w-3 h-3 text-rose-400 fill-rose-400" /> in Frisco, TX
           </p>
         </div>
       </div>
@@ -171,10 +171,10 @@ export function Footer() {
       {/* Hidden schema markup for footer contact info */}
       <div itemScope itemType="https://schema.org/MassageTherapist" className="hidden">
         <span itemProp="name">Healing Touch by Alina</span>
-        <span itemProp="telephone">+1-214-555-0192</span>
-        <span itemProp="email">alina@healingtouchbyalina.com</span>
+        <span itemProp="telephone">[PHONE]</span>
+        <span itemProp="email">[EMAIL]</span>
         <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
-          <span itemProp="addressLocality">Dallas</span>
+          <span itemProp="addressLocality">Frisco</span>
           <span itemProp="addressRegion">TX</span>
           <span itemProp="addressCountry">US</span>
         </div>

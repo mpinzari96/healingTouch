@@ -1,6 +1,6 @@
 # Healing Touch by Alina — Website
 
-Production-ready Next.js 15 website for Alina's mobile massage therapy practice in Dallas, TX.
+Production-ready Next.js 15 website for Alina's massage therapy practice in Frisco, TX — home studio & mobile sessions across North Texas.
 
 ## Tech Stack
 
@@ -43,8 +43,9 @@ src/
 │   │   ├── TrustBar.tsx
 │   │   ├── AboutSection.tsx
 │   │   ├── ServicesTeaser.tsx
-│   │   ├── TestimonialsSection.tsx
 │   │   ├── WhyChooseSection.tsx
+│   │   ├── ReferAFriendSection.tsx
+│   │   ├── GiftCardsSection.tsx
 │   │   └── FinalCTASection.tsx
 │   └── ui/
 │       └── ToastProvider.tsx
@@ -74,10 +75,14 @@ Visit `http://localhost:3000`
 ## Customization Checklist
 
 ### Replace Placeholder Data
-- [ ] **Phone**: Update `(214) 555-0192` → Alina's real number (search `2145550192` across all files)
-- [ ] **Email**: Update `alina@healingtouchbyalina.com` → real email
-- [ ] **Domain**: Update `healingtouchbyalina.com` → real domain in `layout.tsx`, `sitemap.ts`
-- [ ] **Social links**: Update Instagram/Facebook URLs
+Real content is in place. The following bracketed tokens are intentional placeholders — search for each and replace with the real value across all files:
+- [ ] **Phone**: Replace `[PHONE]` → Alina's real number (used in `tel:`/`sms:` links, display text, and JSON-LD)
+- [ ] **Email**: Replace `[EMAIL]` → real email (used in `mailto:` links, display text, and JSON-LD)
+- [ ] **Instagram**: Replace `[INSTAGRAM_URL]` → real Instagram profile URL
+- [ ] **Facebook**: Replace `[FACEBOOK_URL]` → real Facebook page URL
+- [ ] **WhatsApp**: Replace `[WHATSAPP_URL]` → real WhatsApp link (Contact page)
+- [ ] **Domain**: Update `healingtouchbyalina.com` → real domain in `layout.tsx`, `sitemap.ts`, page metadata
+- [ ] **Gift cards**: In `src/components/sections/GiftCardsSection.tsx`, update `GIFT_CARD_URL` from `/contact` → the real gift card platform link (Square, Vagaro, or Mindbody)
 
 ### Real Images
 - [ ] Replace Unsplash placeholder images with Alina's professional photos
@@ -97,7 +102,7 @@ Visit `http://localhost:3000`
     ```
 
 ### Google Maps
-- Replace map placeholders in `Footer.tsx` and `ContactPageClient.tsx` with real embed URLs
+- Replace map placeholders in `Footer.tsx` and `ContactPageClient.tsx` with real Frisco, TX embed URLs
 
 ### Google Analytics
 Add to `layout.tsx` head:
@@ -123,7 +128,7 @@ verification: {
 - ✅ Unique metadata (title + description) per page
 - ✅ Open Graph + Twitter card tags
 - ✅ Canonical URLs
-- ✅ JSON-LD schema: LocalBusiness + MassageTherapist + Service + FAQPage + Review + AggregateRating
+- ✅ JSON-LD schema: LocalBusiness + MassageTherapist + Service + FAQPage
 - ✅ Semantic HTML5 with proper H1→H2→H3 hierarchy
 - ✅ Alt text on all images
 - ✅ Dynamic XML sitemap (`/sitemap.xml`)

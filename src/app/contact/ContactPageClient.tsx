@@ -16,9 +16,9 @@ type FormState = {
 const initialForm: FormState = { name: '', email: '', phone: '', subject: '', message: '' };
 
 const serviceAreas = [
-  'Dallas', 'Plano', 'Frisco', 'McKinney', 'Richardson',
-  'Garland', 'Irving', 'Carrollton', 'Allen', 'Addison',
-  'Mesquite', 'Grand Prairie', 'Lewisville', 'Denton',
+  'Frisco', 'Little Elm', 'McKinney', 'Prosper',
+  'Allen', 'Plano', 'The Colony', 'Celina',
+  'Aubrey', 'Lewisville',
 ];
 
 const hours = [
@@ -65,7 +65,7 @@ export function ContactPageClient() {
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
             className="text-white/70 text-lg font-light">
-            Questions about services??? Ready to book? Reach out any way you prefer — I respond promptly.
+            Questions about services? Ready to book? Reach out any way you prefer — I respond promptly.
           </motion.p>
         </div>
       </section>
@@ -90,22 +90,22 @@ export function ContactPageClient() {
                 <h2 className="font-serif text-2xl font-semibold text-sage-800 mb-6">Get in Touch</h2>
                 <ul className="space-y-5">
                   <li>
-                    <a href="tel:+12145550192"
+                    <a href="tel:[PHONE]"
                       className="flex items-start gap-4 group"
-                      aria-label="Call Alina at (214) 555-0192">
+                      aria-label="Call Alina">
                       <div className="w-11 h-11 rounded-xl bg-sage-50 flex items-center justify-center flex-shrink-0 group-hover:bg-sage-100 transition-colors duration-200">
                         <Phone className="w-5 h-5 text-sage-500" />
                       </div>
                       <div>
                         <p className="text-xs text-sage-400 font-medium uppercase tracking-wide mb-0.5">Phone / Text</p>
                         <p className="text-sage-800 font-semibold group-hover:text-teal-600 transition-colors duration-200">
-                          (214) 555-0192
+                          916-261-5342
                         </p>
                       </div>
                     </a>
                   </li>
                   <li>
-                    <a href="mailto:alina@healingtouchbyalina.com"
+                    <a href="mailto:Healingtouchbyalina@gmail.com"
                       className="flex items-start gap-4 group"
                       aria-label="Email Alina">
                       <div className="w-11 h-11 rounded-xl bg-sage-50 flex items-center justify-center flex-shrink-0 group-hover:bg-sage-100 transition-colors duration-200">
@@ -114,13 +114,13 @@ export function ContactPageClient() {
                       <div>
                         <p className="text-xs text-sage-400 font-medium uppercase tracking-wide mb-0.5">Email</p>
                         <p className="text-sage-800 font-semibold group-hover:text-teal-600 transition-colors duration-200 text-sm break-all">
-                          alina@healingtouchbyalina.com
+                        Healingtouchbyalina@gmail.com
                         </p>
                       </div>
                     </a>
                   </li>
                   <li>
-                    <a href="https://wa.me/12145550192"
+                    <a href="[WHATSAPP_URL]"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-start gap-4 group"
@@ -143,8 +143,8 @@ export function ContactPageClient() {
                       </div>
                       <div>
                         <p className="text-xs text-sage-400 font-medium uppercase tracking-wide mb-0.5">Service Area</p>
-                        <p className="text-sage-800 font-semibold">Dallas, TX & DFW</p>
-                        <p className="text-sage-400 text-xs mt-0.5">Mobile only — I come to you</p>
+                        <p className="text-sage-800 font-semibold">Frisco, TX & North Texas</p>
+                        <p className="text-sage-400 text-xs mt-0.5">Home studio & mobile sessions</p>
                       </div>
                     </div>
                   </li>
@@ -154,11 +154,11 @@ export function ContactPageClient() {
                 <div className="border-t border-sage-100 pt-5 mt-5">
                   <p className="text-xs text-sage-400 font-medium uppercase tracking-wide mb-3">Follow Along</p>
                   <div className="flex gap-3">
-                    <a href="https://instagram.com/healingtouchbyalina" target="_blank" rel="noopener noreferrer"
+                    <a href="[INSTAGRAM_URL]" target="_blank" rel="noopener noreferrer"
                       className="flex items-center gap-2 px-4 py-2 rounded-full bg-sage-50 text-sage-600 text-sm hover:bg-sage-100 transition-colors duration-200">
                       <Instagram className="w-4 h-4" /> Instagram
                     </a>
-                    <a href="https://facebook.com/healingtouchbyalina" target="_blank" rel="noopener noreferrer"
+                    <a href="[FACEBOOK_URL]" target="_blank" rel="noopener noreferrer"
                       className="flex items-center gap-2 px-4 py-2 rounded-full bg-sage-50 text-sage-600 text-sm hover:bg-sage-100 transition-colors duration-200">
                       <Facebook className="w-4 h-4" /> Facebook
                     </a>
@@ -200,19 +200,19 @@ export function ContactPageClient() {
                 className="bg-white rounded-3xl shadow-card overflow-hidden"
               >
                 {/* 
-                  Production: Replace div below with Google Maps iframe:
+                  Production: Replace div below with a Google Maps iframe for Frisco, TX:
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=..."
+                    src="https://www.google.com/maps/embed?pb=YOUR_FRISCO_TX_EMBED"
                     width="100%" height="260" style={{ border: 0 }}
                     allowFullScreen loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="Healing Touch by Alina – Dallas TX service area"
+                    title="Healing Touch by Alina – Frisco TX service area"
                   />
                 */}
                 <div className="w-full h-52 bg-sage-100 flex flex-col items-center justify-center gap-2">
                   <MapPin className="w-8 h-8 text-sage-400" />
-                  <span className="text-sage-500 font-medium">Dallas, TX & Surrounding Cities</span>
-                  <span className="text-sage-400 text-xs">Mobile service area – up to 25 miles</span>
+                  <span className="text-sage-500 font-medium">Frisco, TX & North Texas</span>
+                  <span className="text-sage-400 text-xs">Home studio & mobile (travel fee from $25)</span>
                 </div>
                 <div className="p-5">
                   <p className="text-sage-600 text-sm font-medium mb-2">Service Cities Include:</p>
@@ -283,7 +283,7 @@ export function ContactPageClient() {
                         <option value="booking">Schedule / Book an Appointment</option>
                         <option value="services">Questions About Services</option>
                         <option value="pricing">Pricing & Packages</option>
-                        <option value="gift">Gift Certificates</option>
+                        <option value="gift">Gift Cards</option>
                         <option value="area">Service Area Inquiry</option>
                         <option value="other">Other</option>
                       </select>

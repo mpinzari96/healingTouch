@@ -92,13 +92,13 @@ export function Navbar() {
           {/* Right Actions */}
           <div className="hidden lg:flex items-center gap-4">
             <a
-              href="tel:+12145550192"
+              href="tel:[PHONE]"
               className={`flex items-center gap-2 text-sm font-medium transition-colors duration-300 ${
                 scrolled ? 'text-sage-600 hover:text-sage-800' : 'text-white/85 hover:text-white'
               }`}
             >
               <Phone className="w-4 h-4" />
-              (214) 555-0192
+              916-261-5342 
             </a>
             <Link
               href="/book"
@@ -161,11 +161,11 @@ export function Navbar() {
                 className="mt-6 flex flex-col gap-3"
               >
                 <a
-                  href="tel:+12145550192"
+                  href="tel:[PHONE]"
                   className="flex items-center gap-3 py-3 text-sage-600 font-medium"
                 >
                   <Phone className="w-5 h-5" />
-                  (214) 555-0192
+                  916-261-5342
                 </a>
                 <Link href="/book" className="btn-primary text-center justify-center">
                   Book Your Appointment
