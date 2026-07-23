@@ -32,7 +32,7 @@ const reasons = [
     icon: Clock,
     title: 'Flexible Scheduling',
     description:
-      'Available 7 days a week, 9AM–8PM. Evening and weekend appointments available. Book online or text me directly.',
+      'Monday–Friday 8:30AM–2:30PM, Saturday 9AM–3PM. Book online or text me directly.',
   },
   {
     icon: Heart,

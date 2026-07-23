@@ -1,19 +1,8 @@
 'use client';
 
-import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { useToast } from '@/components/ui/ToastProvider';
+import { useForm, ValidationError } from '@formspree/react';
 import { Phone, Mail, MapPin, MessageSquare, Clock, Instagram, Facebook, CheckCircle } from 'lucide-react';
-
-type FormState = {
-  name: string;
-  email: string;
-  phone: string;
-  subject: string;
-  message: string;
-};
-
-const initialForm: FormState = { name: '', email: '', phone: '', subject: '', message: '' };
 
 const serviceAreas = [
   'Frisco', 'Little Elm', 'McKinney', 'Prosper',
@@ -22,30 +11,13 @@ const serviceAreas = [
 ];
 
 const hours = [
-  { days: 'Monday – Friday', hours: '9:00 AM – 8:00 PM' },
-  { days: 'Saturday', hours: '10:00 AM – 7:00 PM' },
-  { days: 'Sunday', hours: '10:00 AM – 6:00 PM' },
+  { days: 'Monday – Friday', hours: '8:30 AM – 2:30 PM' },
+  { days: 'Saturday', hours: '9:00 AM – 3:00 PM' },
+  { days: 'Sunday', hours: 'Closed' },
 ];
 
 export function ContactPageClient() {
-  const [form, setForm] = useState<FormState>(initialForm);
-  const [loading, setLoading] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-  const { showToast } = useToast();
-
-  const set = (field: keyof FormState) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
-      setForm(p => ({ ...p, [field]: e.target.value }));
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    // Replace with actual endpoint (Formspree, Resend, etc.)
-    await new Promise(r => setTimeout(r, 1200));
-    setLoading(false);
-    setSubmitted(true);
-    showToast('Message sent! Alina will reply within 24 hours.', 'success', 'Message Received 🌿');
-  };
+  const [state, handleSubmit] = useForm('xwvgnqng');
 
   return (
     <>
@@ -187,7 +159,7 @@ export function ContactPageClient() {
                   ))}
                 </ul>
                 <p className="text-xs text-sage-400 mt-4 italic">
-                  Evening appointments often available by request.
+                  Sunday closed. Additional times may be available by request.
                 </p>
               </motion.div>
 
@@ -235,17 +207,15 @@ export function ContactPageClient() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="lg:col-span-3"
             >
-              {submitted ? (
+              {state.succeeded ? (
                 <div className="bg-white rounded-3xl shadow-card p-10 text-center h-full flex flex-col items-center justify-center gap-5">
                   <div className="w-16 h-16 rounded-full bg-sage-100 flex items-center justify-center">
                     <CheckCircle className="w-8 h-8 text-sage-500" />
                   </div>
                   <h2 className="font-serif text-3xl font-semibold text-sage-800">Message Sent!</h2>
                   <p className="text-sage-500 max-w-sm leading-relaxed">
-                    Thank you for reaching out! Alina will reply to <strong className="text-sage-700">{form.email}</strong> within 24 hours. For urgent inquiries, please call or text directly.
+                    Thank you for reaching out! Alina will reply within 24 hours. For urgent inquiries, please call or text directly.
                   </p>
-                  <button onClick={() => { setSubmitted(false); setForm(initialForm); }}
-                    className="btn-outline mt-2">Send Another Message</button>
                 </div>
               ) : (
                 <div className="bg-white rounded-3xl shadow-card p-8 md:p-10">
@@ -258,12 +228,12 @@ export function ContactPageClient() {
                         <label htmlFor="contact-name" className="block text-sm font-medium text-sage-700 mb-1.5">
                           Full Name <span className="text-rose-400">*</span>
                         </label>
-                        <input id="contact-name" type="text" required value={form.name} onChange={set('name')}
+                        <input id="contact-name" name="name" type="text" required
                           placeholder="Jane Smith" className="input-base" autoComplete="name" />
                       </div>
                       <div>
                         <label htmlFor="contact-phone" className="block text-sm font-medium text-sage-700 mb-1.5">Phone</label>
-                        <input id="contact-phone" type="tel" value={form.phone} onChange={set('phone')}
+                        <input id="contact-phone" name="phone" type="tel"
                           placeholder="(214) 555-0000" className="input-base" autoComplete="tel" />
                       </div>
                     </div>
@@ -272,13 +242,14 @@ export function ContactPageClient() {
                       <label htmlFor="contact-email" className="block text-sm font-medium text-sage-700 mb-1.5">
                         Email Address <span className="text-rose-400">*</span>
                       </label>
-                      <input id="contact-email" type="email" required value={form.email} onChange={set('email')}
+                      <input id="contact-email" name="email" type="email" required
                         placeholder="jane@email.com" className="input-base" autoComplete="email" />
+                      <ValidationError field="email" prefix="Email" errors={state.errors} className="text-rose-400 text-xs mt-1" />
                     </div>
 
                     <div>
                       <label htmlFor="contact-subject" className="block text-sm font-medium text-sage-700 mb-1.5">Subject</label>
-                      <select id="contact-subject" value={form.subject} onChange={set('subject')} className="input-base">
+                      <select id="contact-subject" name="subject" className="input-base">
                         <option value="">What can I help you with?</option>
                         <option value="booking">Schedule / Book an Appointment</option>
                         <option value="services">Questions About Services</option>
@@ -293,14 +264,15 @@ export function ContactPageClient() {
                       <label htmlFor="contact-message" className="block text-sm font-medium text-sage-700 mb-1.5">
                         Message <span className="text-rose-400">*</span>
                       </label>
-                      <textarea id="contact-message" required rows={6} value={form.message} onChange={set('message')}
+                      <textarea id="contact-message" name="message" required rows={6}
                         placeholder="Tell me how I can help you! If you're looking to book, feel free to include your preferred service, date, and location..."
                         className="input-base resize-none" />
+                      <ValidationError field="message" prefix="Message" errors={state.errors} className="text-rose-400 text-xs mt-1" />
                     </div>
 
-                    <button type="submit" disabled={loading}
+                    <button type="submit" disabled={state.submitting}
                       className="btn-primary w-full justify-center disabled:opacity-70 disabled:cursor-not-allowed">
-                      {loading ? (
+                      {state.submitting ? (
                         <><div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> Sending...</>
                       ) : (
                         'Send Message'

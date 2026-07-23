@@ -114,7 +114,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:[EMAIL]"
+                  href="mailto:Healingtouchbyalina@gmail.com"
                   className="flex items-start gap-3 text-sage-300 hover:text-sage-100 text-sm transition-colors duration-200 group"
                 >
                   <Mail className="w-4 h-4 mt-0.5 text-teal-400 group-hover:text-teal-300 flex-shrink-0" />
@@ -172,7 +172,7 @@ export function Footer() {
       <div itemScope itemType="https://schema.org/MassageTherapist" className="hidden">
         <span itemProp="name">Healing Touch by Alina</span>
         <span itemProp="telephone">[PHONE]</span>
-        <span itemProp="email">[EMAIL]</span>
+        <span itemProp="email">Healingtouchbyalina@gmail.com</span>
         <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
           <span itemProp="addressLocality">Frisco</span>
           <span itemProp="addressRegion">TX</span>

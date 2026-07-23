@@ -84,7 +84,7 @@ const localBusinessSchema = {
         'Licensed massage therapist serving Frisco, TX and the surrounding North Texas area. Specializing in therapeutic, relaxation, prenatal, pediatric, and CBD oil massage — offered in a home studio and through mobile sessions.',
       url: BASE_URL,
       telephone: '[PHONE]',
-      email: '[EMAIL]',
+      email: 'Healingtouchbyalina@gmail.com',
       priceRange: '$$',
       currenciesAccepted: 'USD',
       paymentAccepted: 'Cash, Credit Card, Venmo, Zelle',
@@ -107,14 +107,14 @@ const localBusinessSchema = {
         {
           '@type': 'OpeningHoursSpecification',
           dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-          opens: '09:00',
-          closes: '20:00',
+          opens: '08:30',
+          closes: '14:30',
         },
         {
           '@type': 'OpeningHoursSpecification',
-          dayOfWeek: ['Saturday', 'Sunday'],
-          opens: '10:00',
-          closes: '18:00',
+          dayOfWeek: ['Saturday'],
+          opens: '09:00',
+          closes: '15:00',
         },
       ],
       hasOfferCatalog: {

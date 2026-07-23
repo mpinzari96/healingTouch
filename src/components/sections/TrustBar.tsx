@@ -8,7 +8,7 @@ const trustItems = [
   { icon: Home, text: 'In-Studio & Mobile Sessions' },
   { icon: MapPin, text: 'Serving Frisco & North Texas' },
   { icon: Shield, text: 'AMTA Member' },
-  { icon: Clock, text: '7 Days a Week, 9AM–8PM' },
+  { icon: Clock, text: 'Mon–Fri 8:30–2:30, Sat 9–3' },
 ];
 
 export function TrustBar() {
