@@ -70,11 +70,11 @@ export function FinalCTASection() {
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
               </Link>
               <a
-                href="tel:[PHONE]"
+                href="tel:+19162615342"
                 className="btn-outline border-white/40 text-white hover:bg-white/10 hover:border-white/60 inline-flex"
               >
                 <Phone className="w-4 h-4" />
-                916-261-5342
+                (916) 261-5342
               </a>
             </div>
           </motion.div>

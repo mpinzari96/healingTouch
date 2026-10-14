@@ -1,149 +1,70 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
   CheckCircle, Phone, Mail, MessageSquare,
-  Clock, Home, Sparkles, MapPin, ExternalLink
+  Clock, Home, Sparkles, MapPin
 } from 'lucide-react';
 
-/* ─── CONSTANTS ──────────────────────────────────────── */
-
-type Variant = { label: string; price: string; url: string };
-type CalEvent = {
-  category: string;
-  description: string;
-  note?: string;
-  variants: Variant[];
-};
-
-const CAL_EVENTS: CalEvent[] = [
-  {
-    category: 'Therapeutic Massage',
-    description: 'Targeted pressure to relieve muscle tension, chronic pain, and improve mobility. Customized to your needs.',
-    variants: [
-      { label: '60 min', price: '$110', url: 'https://cal.com/healing-touch-sz2qfd/therapeutic-massage-60-min-110' },
-      { label: '90 min', price: '$150', url: 'https://cal.com/healing-touch-sz2qfd/therapeutic-massage-90-min-150' },
-      { label: '120 min', price: '$190', url: 'https://cal.com/healing-touch-sz2qfd/therapeutic-massage-120-min-190' },
-    ],
-  },
-  {
-    category: 'Relaxation Massage',
-    description: 'Gentle, flowing strokes designed to calm the nervous system, melt stress, and restore a sense of peace.',
-    variants: [
-      { label: '60 min', price: '$100', url: 'https://cal.com/healing-touch-sz2qfd/relaxation-massage-60-min-100' },
-      { label: '90 min', price: '$145', url: 'https://cal.com/healing-touch-sz2qfd/relaxation-massage-90-min-145' },
-      { label: '120 min', price: '$180', url: 'https://cal.com/healing-touch-sz2qfd/relaxation-massage-120-min-180' },
-    ],
-  },
-  {
-    category: 'Prenatal Massage',
-    description: 'Safe, nurturing care for expectant mothers from the second trimester onward. Eases pregnancy discomforts and promotes deep relaxation.',
-    variants: [
-      { label: '60 min', price: '$110', url: 'https://cal.com/healing-touch-sz2qfd/prenatal-massage-60-min-110' },
-      { label: '90 min', price: '$130', url: 'https://cal.com/healing-touch-sz2qfd/prenatal-massage-90-min-130' },
-    ],
-  },
-  {
-    category: 'Pediatric Massage',
-    description: 'Gentle massage for children ages 1–12. Parent or guardian must be present. Supports relaxation, sleep, and healthy development.',
-    note: 'Parent/guardian consent & presence required',
-    variants: [
-      { label: '30 min', price: '$50', url: 'https://cal.com/healing-touch-sz2qfd/pediatric-massage-1-12-30-min-50' },
-      { label: '45 min', price: '$70', url: 'https://cal.com/healing-touch-sz2qfd/pediatric-massage-1-12-30-min-60' },
-      { label: '60 min', price: '$80', url: 'https://cal.com/healing-touch-sz2qfd/pediatric-massage-1-12-60-min-80' },
-    ],
-  },
-  {
-    category: 'Infant Massage',
-    description: 'A parent-guided educational session teaching you how to massage your infant to support bonding, sleep, and colic relief.',
-    note: 'Parent-guided educational session',
-    variants: [
-      { label: '30 min', price: '$50', url: 'https://cal.com/healing-touch-sz2qfd/infant-massage-parent-guided-30-min-55' },
-    ],
-  },
-  {
-    category: 'CBD Oil Massage',
-    description: 'All the benefits of therapeutic massage enhanced with premium CBD oil to reduce inflammation, ease tension, and deepen relaxation.',
-    variants: [
-      { label: '35 min', price: '$90', url: 'https://cal.com/healing-touch-sz2qfd/cbd-oil-massage-35-min-90' },
-      { label: '60 min', price: '$125', url: 'https://cal.com/healing-touch-sz2qfd/cbd-oil-massage-60-min-125' },
-      { label: '90 min', price: '$160', url: 'https://cal.com/healing-touch-sz2qfd/cbd-oil-massage-90-min-160' },
-      { label: '120 min', price: '$190', url: 'https://cal.com/healing-touch-sz2qfd/cbd-oil-massage-120-min-190' },
-    ],
-  },
-];
-
-/* ─── SERVICE CARD ───────────────────────────────────── */
-
-function ServiceCard({ event, index }: { event: CalEvent; index: number }) {
-  const [selected, setSelected] = useState<number | null>(null);
-  const selectedVariant = selected !== null ? event.variants[selected] : null;
-
-  const handleBook = () => {
-    if (selectedVariant) {
-      window.open(selectedVariant.url, '_blank', 'noopener,noreferrer');
-    }
-  };
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: (index % 3) * 0.08, ease: [0.16, 1, 0.3, 1] }}
-      className="card-base p-7 flex flex-col"
-    >
-      <h2 className="font-serif text-2xl font-semibold text-sage-800">{event.category}</h2>
-      <p className="text-sage-500 text-sm mt-2 leading-relaxed">{event.description}</p>
-
-      {event.note && (
-        <span className="inline-flex self-start items-center mt-3 px-3 py-1 bg-sage-50 text-sage-400 text-xs rounded-full">
-          {event.note}
-        </span>
-      )}
-
-      {/* Duration / price pills */}
-      <div className="flex flex-wrap gap-2 mt-5 mb-6">
-        {event.variants.map((variant, i) => {
-          const isActive = selected === i;
-          return (
-            <button
-              key={variant.label}
-              type="button"
-              onClick={() => setSelected(i)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                isActive
-                  ? 'bg-sage-500 text-white shadow-sm'
-                  : 'border border-sage-200 text-sage-600 hover:border-sage-300 hover:bg-sage-50'
-              }`}
-            >
-              {variant.label} · {variant.price}
-            </button>
-          );
-        })}
-      </div>
-
-      {/* Book button */}
-      <button
-        type="button"
-        onClick={handleBook}
-        disabled={!selectedVariant}
-        className="btn-primary w-full justify-center mt-auto disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none disabled:hover:bg-sage-500"
-      >
-        {selectedVariant ? (
-          <>Book This Session <ExternalLink className="w-4 h-4" /></>
-        ) : (
-          'Select a Duration Above'
-        )}
-      </button>
-    </motion.div>
-  );
-}
-
-/* ─── PAGE ─────────────────────────────────────────────── */
+// No module-level flag needed — we use DOM state instead,
+// which resets naturally on each visit to /book.
 
 export function BookPageClient() {
+  useEffect(() => {
+    const container = document.getElementById('square-widget-container');
+    if (!container) return;
+
+    // Guard against Strict Mode's double-invoke:
+    // Check if our script tag is already in the container DOM.
+    // The container is a fresh element on each page visit,
+    // so this is always false on a new visit but catches the
+    // Strict Mode second mount within the same visit.
+    const alreadyInjected = container.querySelector(
+      'script[src*="square.site/appointments"]'
+    );
+    if (alreadyInjected) return;
+
+    const script = document.createElement('script');
+    // Square widget script — to update: replace src URL with new embed URL
+    // from Square Dashboard > Appointments > Embed
+    script.src =
+      'https://square.site/appointments/buyer/widget/ikp5e1iwnqolik/LMSDE8GZJG1WS.js';
+    script.async = true;
+
+    script.onload = () => {
+      // Hide the loading skeleton once Square's iframe has injected
+      const skeleton = document.getElementById('square-loading-skeleton');
+      if (skeleton) skeleton.style.display = 'none';
+    };
+
+    script.onerror = () => {
+      // Show fallback if script is blocked or fails to load
+      const skeleton = document.getElementById('square-loading-skeleton');
+      if (skeleton) {
+        skeleton.removeAttribute('aria-label');
+        skeleton.setAttribute('aria-label', 'Booking calendar unavailable');
+        skeleton.innerHTML = `
+          <div class="flex flex-col items-center justify-center gap-4 text-sage-500 p-8 text-center">
+            <p class="font-serif text-xl font-semibold text-sage-700">Unable to load booking calendar</p>
+            <p class="text-sm leading-relaxed max-w-xs">Please try refreshing the page, or reach out to book directly.</p>
+            <a href="tel:+19162615342" class="btn-primary text-sm px-6 py-3">Call to Book</a>
+          </div>
+        `;
+        skeleton.style.pointerEvents = 'auto';
+      }
+    };
+
+    // Append script as a child of the container so Square's
+    // document.currentScript.parentNode points inside the styled box.
+    // Do NOT remove this script tag after appending — Square checks
+    // scriptTag.parentNode before injecting its iframe, and a missing
+    // parentNode triggers a redirect to app.squareup.com.
+    container.appendChild(script);
+
+    // Intentionally no cleanup return — see comment above.
+  }, []);
+
   return (
     <>
       {/* Hero banner */}
@@ -162,7 +83,7 @@ export function BookPageClient() {
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
             className="text-white/70 text-lg font-light">
-            Choose your service and duration below to reserve your time instantly.
+            Select your service, pick a time that works for you, and confirm your booking instantly.
           </motion.p>
 
           {/* Trust row */}
@@ -182,41 +103,32 @@ export function BookPageClient() {
         </div>
       </section>
 
-      {/* Booking area */}
-      <section className="py-20 bg-beige-100" aria-labelledby="book-heading">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 id="book-heading" className="sr-only">Book a massage session</h2>
-
-          {/* Section 1 — Enhancements notice */}
+      {/* Notices */}
+      <section className="pt-16 pb-4 bg-beige-100" aria-label="Booking notices">
+        <div className="max-w-4xl mx-auto px-6 space-y-4">
+          {/* Enhancements notice */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="bg-teal-50 border border-teal-200 rounded-2xl px-5 py-4 mb-10 flex items-start gap-3"
+            className="bg-teal-50 border border-teal-200 rounded-2xl px-5 py-4 flex items-start gap-3"
           >
             <Sparkles className="w-5 h-5 text-teal-500 flex-shrink-0 mt-0.5" />
             <p className="text-teal-700 text-sm leading-relaxed">
               Add any enhancement to your session for just <strong>$10 each</strong> — Cupping Therapy,
               Aromatherapy, Hot Stone, Scalp Massage, Hydrating Face Mask, Cooling Eye Mask, or Foot Mask.
-              Just mention it when booking.
+              Just mention it in the notes when booking.
             </p>
           </motion.div>
 
-          {/* Section 2 — Service cards grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {CAL_EVENTS.map((event, i) => (
-              <ServiceCard key={event.category} event={event} index={i} />
-            ))}
-          </div>
-
-          {/* Section 3 — Mobile massage note */}
+          {/* Mobile massage notice */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="bg-beige-100 border border-sage-200 rounded-2xl px-6 py-5 mt-10 flex items-start gap-3"
+            className="bg-beige-100 border border-sage-200 rounded-2xl px-6 py-5 flex items-start gap-3"
           >
             <MapPin className="w-5 h-5 text-sage-500 flex-shrink-0 mt-0.5" />
             <p className="text-sage-600 text-sm leading-relaxed">
@@ -225,22 +137,59 @@ export function BookPageClient() {
               starting at $25 based on distance.
             </p>
           </motion.div>
+        </div>
+      </section>
 
-          {/* Section 4 — Bottom contact row */}
+      {/* Square Appointments widget */}
+      <section className="py-16 bg-cream">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="text-center mb-10">
+            <p className="section-label mb-3">Real-Time Availability</p>
+            <h2 className="section-title mb-3">Choose Your Session</h2>
+            <p className="section-subtitle">
+              Select your service, pick a time that works for you, and confirm your booking instantly.
+            </p>
+          </div>
+
+          <div
+            id="square-widget-container"
+            className="h-[400px] sm:h-[700px] rounded-3xl overflow-hidden shadow-card bg-white relative"
+          >
+            {/* Loading skeleton — Square iframe injects as sibling of the script */}
+            <div
+              id="square-loading-skeleton"
+              role="status"
+              aria-label="Loading booking calendar"
+              aria-live="polite"
+              className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-sage-300 pointer-events-none"
+            >
+              <div className="w-12 h-12 border-2 border-sage-100 border-t-sage-300 rounded-full animate-spin" />
+              <p className="text-sm">Loading booking calendar...</p>
+            </div>
+          </div>
+          {/* Note: On viewports below approximately 328px (Square measures container content width,
+              which is viewport width minus 48px from px-6 padding) Square shows a fallback booking button
+              instead of the full iframe. The reduced height prevents a large empty card. */}
+        </div>
+      </section>
+
+      {/* Prefer to book directly */}
+      <section className="pb-20 bg-cream">
+        <div className="max-w-4xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.5 }}
-            className="mt-12 text-center"
+            className="text-center"
           >
             <p className="text-sage-400 text-sm mb-4">Prefer to book directly?</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a href="tel:[PHONE]"
+              <a href="tel:+19162615342"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-sage-200 text-sage-600 text-sm hover:bg-sage-50 transition-colors duration-200">
-                <Phone className="w-4 h-4" /> 916-261-5342
+                <Phone className="w-4 h-4" /> (916) 261-5342
               </a>
-              <a href="sms:[PHONE]"
+              <a href="sms:+19162615342"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-sage-200 text-sage-600 text-sm hover:bg-sage-50 transition-colors duration-200">
                 <MessageSquare className="w-4 h-4" /> Text Alina
               </a>

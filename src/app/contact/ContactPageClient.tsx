@@ -62,7 +62,7 @@ export function ContactPageClient() {
                 <h2 className="font-serif text-2xl font-semibold text-sage-800 mb-6">Get in Touch</h2>
                 <ul className="space-y-5">
                   <li>
-                    <a href="tel:[PHONE]"
+                    <a href="tel:+19162615342"
                       className="flex items-start gap-4 group"
                       aria-label="Call Alina">
                       <div className="w-11 h-11 rounded-xl bg-sage-50 flex items-center justify-center flex-shrink-0 group-hover:bg-sage-100 transition-colors duration-200">
@@ -71,7 +71,7 @@ export function ContactPageClient() {
                       <div>
                         <p className="text-xs text-sage-400 font-medium uppercase tracking-wide mb-0.5">Phone / Text</p>
                         <p className="text-sage-800 font-semibold group-hover:text-teal-600 transition-colors duration-200">
-                          916-261-5342
+                          (916) 261-5342
                         </p>
                       </div>
                     </a>
@@ -92,7 +92,7 @@ export function ContactPageClient() {
                     </a>
                   </li>
                   <li>
-                    <a href="[WHATSAPP_URL]"
+                    <a href="https://wa.me/19162615342"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-start gap-4 group"

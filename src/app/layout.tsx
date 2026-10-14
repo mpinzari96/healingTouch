@@ -83,7 +83,7 @@ const localBusinessSchema = {
       description:
         'Licensed massage therapist serving Frisco, TX and the surrounding North Texas area. Specializing in therapeutic, relaxation, prenatal, pediatric, and CBD oil massage — offered in a home studio and through mobile sessions.',
       url: BASE_URL,
-      telephone: '[PHONE]',
+      telephone: '+19162615342',
       email: 'Healingtouchbyalina@gmail.com',
       priceRange: '$$',
       currenciesAccepted: 'USD',
