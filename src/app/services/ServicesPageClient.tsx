@@ -5,11 +5,48 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Clock, Plus, Minus, CheckCircle, ArrowRight, MapPin, Sparkles,
+  Clock, Plus, Minus, CheckCircle, MapPin, Sparkles,
   Leaf, Baby, Zap, Star, Wind
 } from 'lucide-react';
 
 /* ─── DATA ─────────────────────────────────────────── */
+
+const SQUARE_URLS = {
+  base: 'https://book.squareup.com/appointments/ikp5e1iwnqolik/location/LMSDE8GZJG1WS/services',
+  therapeutic: {
+    60: 'S5WE4Y5UIWWPJ5F2FJRTCEEO',
+    90: 'VYMALRVSDM5N4VSE2YD7BYBE',
+    120: '4SKJJSZJIMRQ6VJYODVLLTEA',
+  },
+  relaxation: {
+    60: 'BMLBV5ONQZ427ZUWOSRKIACK',
+    90: 'AZJSM4Q6E2SQCL5QT7C4OAVW',
+    120: 'XJ3IUWB4XSZ73ISGWHI74WGP',
+  },
+  prenatal: {
+    60: '4K73DUIZGN4QNTHXKRWKMLTR',
+    90: '5UJKFQ3UMGXFYAQQ4N7HLLS6',
+  },
+  pediatric: {
+    30: 'O36XD7DSEMPRLGYJ6H77EQXP',
+    45: 'UBF5QUMPOTSGO4UHLIDNLIZE',
+    60: 'IGWSG36IQ3SFPZPYM2FG3PLE',
+  },
+  infant: {
+    30: '4ZSQ22Q4VLPK5SHUJN47U4KV',
+  },
+  cbd: {
+    35: 'NSGTM2LAKXR5JOA4Y6WEKQWB',
+    60: 'U4UA4TYH3A3XKK2MRH6PEK6E',
+    90: 'LMAO2P443XQKJXCRU22IN22H',
+    120: 'KUTAYCVW23DIBZCMP4N63POF',
+  },
+} as const;
+
+// Helper to build full Square booking URL for a specific service
+function squareUrl(serviceId: string): string {
+  return `${SQUARE_URLS.base}/${serviceId}`;
+}
 
 const services = [
   {
@@ -18,6 +55,11 @@ const services = [
     icon: Zap,
     tagline: 'Targeted Relief for Pain & Tension',
     price: { '60': 110, '90': 150, '120': 190 },
+    bookingUrls: {
+      60: squareUrl(SQUARE_URLS.therapeutic[60]),
+      90: squareUrl(SQUARE_URLS.therapeutic[90]),
+      120: squareUrl(SQUARE_URLS.therapeutic[120]),
+    },
     image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=900&q=85',
     tag: 'Most Popular',
     tagColor: 'bg-teal-500',
@@ -40,6 +82,11 @@ const services = [
     icon: Wind,
     tagline: 'Calm the Body, Quiet the Mind',
     price: { '60': 100, '90': 145, '120': 180 },
+    bookingUrls: {
+      60: squareUrl(SQUARE_URLS.relaxation[60]),
+      90: squareUrl(SQUARE_URLS.relaxation[90]),
+      120: squareUrl(SQUARE_URLS.relaxation[120]),
+    },
     image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=900&q=85',
     tag: null,
     tagColor: '',
@@ -62,6 +109,10 @@ const services = [
     icon: Baby,
     tagline: 'Nurturing Care for Expecting Mothers',
     price: { '60': 110, '90': 130 },
+    bookingUrls: {
+      60: squareUrl(SQUARE_URLS.prenatal[60]),
+      90: squareUrl(SQUARE_URLS.prenatal[90]),
+    },
     image: 'https://images.unsplash.com/photo-1457342813143-a1ae27448a82',
     tag: 'Specialist',
     tagColor: 'bg-teal-400',
@@ -84,6 +135,11 @@ const services = [
     icon: Star,
     tagline: 'Gentle Care for Ages 5–17',
     price: { '30': 50, '45': 70, '60': 90 },
+    bookingUrls: {
+      30: squareUrl(SQUARE_URLS.pediatric[30]),
+      45: squareUrl(SQUARE_URLS.pediatric[45]),
+      60: squareUrl(SQUARE_URLS.pediatric[60]),
+    },
     image: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=900&q=85',
     tag: 'Ages 5–17',
     tagColor: 'bg-sage-500',
@@ -106,6 +162,9 @@ const services = [
     icon: Baby,
     tagline: 'A Parent-Guided Educational Session',
     price: { '30': 50 },
+    bookingUrls: {
+      30: squareUrl(SQUARE_URLS.infant[30]),
+    },
     image: 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=900&q=85',
     tag: 'Parent-Guided',
     tagColor: 'bg-teal-400',
@@ -128,6 +187,12 @@ const services = [
     icon: Leaf,
     tagline: 'Soothe Sore Muscles, Deepen Relaxation',
     price: { '35': 90, '60': 125, '90': 160, '120': 190 },
+    bookingUrls: {
+      35: squareUrl(SQUARE_URLS.cbd[35]),
+      60: squareUrl(SQUARE_URLS.cbd[60]),
+      90: squareUrl(SQUARE_URLS.cbd[90]),
+      120: squareUrl(SQUARE_URLS.cbd[120]),
+    },
     image: 'https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?w=900&q=85',
     tag: 'Luxurious',
     tagColor: 'bg-gold-500',
@@ -199,7 +264,6 @@ const faqs = [
 
 function ServiceCard({ service, index }: { service: typeof services[0]; index: number }) {
   const Icon = service.icon;
-  const durations = Object.keys(service.price) as string[];
 
   return (
     <motion.article
@@ -272,35 +336,38 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
           </div>
         )}
 
-        {/* Pricing */}
-        <div className="bg-beige-100 rounded-2xl p-4 mb-5">
-          <p className="text-xs font-semibold text-sage-500 uppercase tracking-wider mb-3">Pricing</p>
-          <div className="flex flex-wrap gap-3">
-            {durations.map(dur => (
-              <div
+        {/* Book a Session — per-duration Square links */}
+        <div className="px-5 pb-5 space-y-2">
+          <p className="text-xs font-semibold text-sage-500 uppercase tracking-wider mb-3">
+            Book a Session
+          </p>
+          {Object.entries(service.price).map(([dur, price]) => {
+            const url = service.bookingUrls[dur as keyof typeof service.bookingUrls];
+            return (
+              <a
                 key={dur}
-                className="flex items-center gap-2"
-                itemProp="offers"
-                itemScope
-                itemType="https://schema.org/Offer"
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between w-full px-4 py-3 rounded-xl border border-sage-100 hover:border-sage-300 hover:bg-sage-50 transition-all duration-200 group"
+                aria-label={`Book ${service.name} ${dur} minute session for $${price}`}
               >
-                <div className="flex items-center gap-1 text-sage-400 text-xs">
+                <div className="flex items-center gap-2 text-sage-500 text-sm">
                   <Clock className="w-3.5 h-3.5" />
                   <span>{dur} min</span>
                 </div>
-                <span className="text-sage-700 font-semibold font-serif text-lg">
-                  <span itemProp="price">${service.price[dur as keyof typeof service.price]}</span>
-                  <meta itemProp="priceCurrency" content="USD" />
-                </span>
-              </div>
-            ))}
-          </div>
+                <div className="flex items-center gap-3">
+                  <span className="font-serif text-lg font-semibold text-sage-700">
+                    ${price}
+                  </span>
+                  <span className="text-xs font-medium text-white bg-sage-500 px-3 py-1 rounded-full group-hover:bg-sage-600 transition-colors duration-200">
+                    Book
+                  </span>
+                </div>
+              </a>
+            );
+          })}
         </div>
-
-        <Link href="/book" className="btn-primary w-full justify-center group/btn">
-          Book {service.name}
-          <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-200" />
-        </Link>
       </div>
     </motion.article>
   );
