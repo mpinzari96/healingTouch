@@ -11,8 +11,9 @@ const serviceAreas = [
 ];
 
 const hours = [
-  { days: 'Monday – Friday', hours: '8:30 AM – 2:30 PM' },
-  { days: 'Saturday', hours: '9:00 AM – 3:00 PM' },
+  { days: 'Monday – Wednesday', hours: '8:00 AM – 2:30 PM' },
+  { days: 'Thursday – Friday', hours: '8:00 AM – 2:30 PM & 3:45 – 5:00 PM' },
+  { days: 'Saturday', hours: '10:00 AM – 3:00 PM' },
   { days: 'Sunday', hours: 'Closed' },
 ];
 
@@ -114,9 +115,15 @@ export function ContactPageClient() {
                         <MapPin className="w-5 h-5 text-sage-500" />
                       </div>
                       <div>
-                        <p className="text-xs text-sage-400 font-medium uppercase tracking-wide mb-0.5">Service Area</p>
-                        <p className="text-sage-800 font-semibold">Frisco, TX & North Texas</p>
-                        <p className="text-sage-400 text-xs mt-0.5">Home studio & mobile sessions</p>
+                        <p className="text-xs text-sage-400 font-medium uppercase tracking-wide mb-0.5">
+                          Studio Location
+                        </p>
+                        <p className="text-sage-800 font-semibold">8275 Judges Way, Suite 100D</p>
+                        <p className="text-sage-800 font-semibold">Room #11, Frisco, TX 75036</p>
+                        <p className="text-teal-600 text-sm font-medium mt-1">✓ Walk-ins Welcome</p>
+                        <p className="text-sage-400 text-xs mt-0.5">
+                          Mobile sessions also available — I come to you
+                        </p>
                       </div>
                     </div>
                   </li>
@@ -172,7 +179,8 @@ export function ContactPageClient() {
                 className="bg-white rounded-3xl shadow-card overflow-hidden"
               >
                 {/* 
-                  Production: Replace div below with a Google Maps iframe for Frisco, TX:
+                  Production: Replace with Google Maps embed for
+                  "8275 Judges Way Suite 100D Room 11 Frisco TX 75036"
                   <iframe
                     src="https://www.google.com/maps/embed?pb=YOUR_FRISCO_TX_EMBED"
                     width="100%" height="260" style={{ border: 0 }}
@@ -183,8 +191,8 @@ export function ContactPageClient() {
                 */}
                 <div className="w-full h-52 bg-sage-100 flex flex-col items-center justify-center gap-2">
                   <MapPin className="w-8 h-8 text-sage-400" />
-                  <span className="text-sage-500 font-medium">Frisco, TX & North Texas</span>
-                  <span className="text-sage-400 text-xs">Home studio & mobile (travel fee from $25)</span>
+                  <span className="text-sage-500 font-medium text-center">8275 Judges Way, Suite 100D</span>
+                  <span className="text-sage-400 text-xs">Room #11, Frisco, TX 75036</span>
                 </div>
                 <div className="p-5">
                   <p className="text-sage-600 text-sm font-medium mb-2">Service Cities Include:</p>

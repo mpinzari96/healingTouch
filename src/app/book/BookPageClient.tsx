@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
   CheckCircle, Phone, Mail, MessageSquare,
-  Clock, Home, Sparkles, MapPin
+  Clock, Home, Sparkles, MapPin, Gift
 } from 'lucide-react';
 
 // No module-level flag needed — we use DOM state instead,
@@ -91,7 +91,7 @@ export function BookPageClient() {
             className="flex flex-wrap items-center justify-center gap-5 mt-8">
             {[
               { icon: Home, text: 'In-Studio or Mobile' },
-              { icon: Clock, text: 'Mon–Fri 8:30–2:30 · Sat 9–3' },
+              { icon: Clock, text: 'Mon–Wed 8AM–2:30PM · Thu–Fri 8AM–2:30PM & 3:45–5PM · Sat 10AM–3PM' },
               { icon: CheckCircle, text: 'Licensed & Insured' },
             ].map(({ icon: Icon, text }) => (
               <div key={text} className="flex items-center gap-2 text-white/65 text-sm">
@@ -132,9 +132,13 @@ export function BookPageClient() {
           >
             <MapPin className="w-5 h-5 text-sage-500 flex-shrink-0 mt-0.5" />
             <p className="text-sage-600 text-sm leading-relaxed">
-              <strong className="text-sage-700">Mobile Massage Available</strong> — I come to you in Frisco,
-              Little Elm, McKinney, Prosper, Allen, Plano &amp; surrounding North Texas areas. Travel fee
-              starting at $25 based on distance.
+              <strong className="text-sage-700">Studio &amp; Mobile Sessions Available</strong>
+              <br />
+              Visit us at 8275 Judges Way, Suite 100D, Room #11, Frisco, TX 75036.
+              Walk-ins welcome based on availability.
+              <br />
+              Mobile sessions also available throughout Frisco, Little Elm, McKinney,
+              Prosper, Allen, Plano &amp; surrounding North Texas areas. Travel fee starting at $25.
             </p>
           </motion.div>
         </div>
@@ -196,6 +200,15 @@ export function BookPageClient() {
               <a href="mailto:Healingtouchbyalina@gmail.com"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-sage-200 text-sage-600 text-sm hover:bg-sage-50 transition-colors duration-200">
                 <Mail className="w-4 h-4" /> Email
+              </a>
+              <a
+                href="https://app.squareup.com/gift/MLG1HM1CDGP8W/order"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-sage-200 text-sage-600 text-sm hover:bg-sage-50 transition-colors duration-200"
+              >
+                <Gift className="w-4 h-4" />
+                Gift Cards
               </a>
             </div>
           </motion.div>

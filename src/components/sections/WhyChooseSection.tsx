@@ -32,7 +32,7 @@ const reasons = [
     icon: Clock,
     title: 'Flexible Scheduling',
     description:
-      'Monday–Friday 8:30AM–2:30PM, Saturday 9AM–3PM. Book online or text me directly.',
+      'Monday–Wednesday 8:00 AM–2:30 PM, Thursday–Friday 8:00 AM–2:30 PM & 3:45–5:00 PM, Saturday 10:00 AM–3:00 PM, Sunday Closed',
   },
   {
     icon: Heart,

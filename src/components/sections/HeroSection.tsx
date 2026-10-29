@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { ArrowRight, Award, Shield, MapPin } from 'lucide-react';
+import { ArrowRight, Award, Shield, MapPin, Gift } from 'lucide-react';
 
 export function HeroSection() {
   return (
@@ -113,6 +113,19 @@ export function HeroSection() {
             View Services & Pricing
           </Link>
         </motion.div>
+
+        <div className="mt-4 text-center">
+          <a
+            href="https://app.squareup.com/gift/MLG1HM1CDGP8W/order"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-white/65 text-sm hover:text-white/90 transition-colors duration-200 group"
+          >
+            <Gift className="w-3.5 h-3.5" />
+            Gifting someone? Purchase a gift card
+            <span className="group-hover:translate-x-0.5 transition-transform duration-200">→</span>
+          </a>
+        </div>
 
         {/* Trust signals */}
         <motion.div

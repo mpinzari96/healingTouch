@@ -1,14 +1,15 @@
 'use client';
 
-import { Shield, Home, MapPin, Clock, Award } from 'lucide-react';
+import { Shield, Home, MapPin, Clock, Award, DoorOpen } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const trustItems = [
   { icon: Award, text: 'Licensed & Insured Therapist' },
   { icon: Home, text: 'In-Studio & Mobile Sessions' },
-  { icon: MapPin, text: 'Serving Frisco & North Texas' },
+  { icon: MapPin, text: 'Frisco, TX & North Texas' },
+  { icon: DoorOpen, text: 'Walk-ins Welcome' },
   { icon: Shield, text: 'AMTA Member' },
-  { icon: Clock, text: 'Mon–Fri 8:30–2:30, Sat 9–3' },
+  { icon: Clock, text: 'Mon–Wed 8–2:30 · Thu–Fri 8–2:30 & 3:45–5 · Sat 10–3' },
 ];
 
 export function TrustBar() {

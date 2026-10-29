@@ -21,6 +21,7 @@ yarn-error.log*
 
 # typescript
 next-env.d.ts
+tsconfig.tsbuildinfo
 
 # Cursor local artifacts
 .cursor/debug-*.log

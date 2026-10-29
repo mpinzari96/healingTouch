@@ -96,6 +96,16 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <a
+                  href="https://app.squareup.com/gift/MLG1HM1CDGP8W/order"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sage-300 hover:text-sage-100 text-sm transition-colors duration-200 flex items-center gap-1.5"
+                >
+                  🎁 Gift Cards
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -124,10 +134,22 @@ export function Footer() {
               <li>
                 <div className="flex items-start gap-3 text-sage-300 text-sm">
                   <MapPin className="w-4 h-4 mt-0.5 text-teal-400 flex-shrink-0" />
-                  <span>Frisco, TX & North Texas<br />(Home Studio & Mobile)</span>
+                  <span>
+                    8275 Judges Way, Suite 100D<br />
+                    Room #11, Frisco, TX 75036<br />
+                    <span className="text-teal-300 font-medium">Walk-ins Welcome</span>
+                  </span>
                 </div>
               </li>
             </ul>
+
+            <div className="mt-4 space-y-1">
+              <p className="text-xs font-semibold text-sage-400 uppercase tracking-wider mb-2">Hours</p>
+              <p className="text-sage-400 text-xs">Mon – Wed: 8:00 AM – 2:30 PM</p>
+              <p className="text-sage-400 text-xs">Thu – Fri: 8:00 AM – 2:30 PM &amp; 3:45 – 5:00 PM</p>
+              <p className="text-sage-400 text-xs">Saturday: 10:00 AM – 3:00 PM</p>
+              <p className="text-sage-400 text-xs">Sunday: Closed</p>
+            </div>
 
             {/* Map placeholder */}
             <div className="mt-5 rounded-xl overflow-hidden border border-sage-700">
@@ -135,7 +157,8 @@ export function Footer() {
               <div className="w-full h-32 bg-sage-700 flex items-center justify-center">
                 <div className="text-center">
                   <MapPin className="w-6 h-6 text-teal-400 mx-auto mb-1" />
-                  <span className="text-sage-400 text-xs">Frisco, TX Area</span>
+                  <span className="text-sage-400 text-xs">8275 Judges Way, Suite 100D, Room #11</span>
+                  <span className="block text-sage-400 text-xs mt-0.5">Frisco, TX 75036</span>
                 </div>
               </div>
               {/* 
@@ -173,9 +196,11 @@ export function Footer() {
         <span itemProp="name">Healing Touch by Alina</span>
         <span itemProp="telephone">(916) 261-5342</span>
         <span itemProp="email">Healingtouchbyalina@gmail.com</span>
-        <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+        <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress" className="hidden">
+          <span itemProp="streetAddress">8275 Judges Way, Suite 100D, Room #11</span>
           <span itemProp="addressLocality">Frisco</span>
           <span itemProp="addressRegion">TX</span>
+          <span itemProp="postalCode">75036</span>
           <span itemProp="addressCountry">US</span>
         </div>
       </div>

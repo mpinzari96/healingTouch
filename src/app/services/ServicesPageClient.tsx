@@ -556,18 +556,31 @@ export function ServicesPageClient() {
                 <div className="w-11 h-11 rounded-xl bg-sage-50 flex items-center justify-center flex-shrink-0">
                   <MapPin className="w-5 h-5 text-sage-500" />
                 </div>
-                <h3 className="font-serif text-2xl font-semibold text-sage-800">Mobile Massage</h3>
+                <h3 className="font-serif text-2xl font-semibold text-sage-800">Studio &amp; Mobile Sessions</h3>
               </div>
-              <p className="text-teal-500 text-sm font-medium mb-6">Travel fee starting at $25 based on distance</p>
+              <p className="text-teal-500 text-sm font-medium mb-6">Walk-ins welcome based on availability</p>
               <p className="text-sage-500 text-sm leading-relaxed mb-6">
-                Prefer to relax at home? I bring the full experience to you. Mobile massage is available in{' '}
-                <strong className="text-sage-700">Frisco, Little Elm, McKinney, Prosper, Allen, Plano</strong>, 
-                and surrounding North Texas areas. You can also visit me in my comfortable home studio.
+                Visit us at <strong className="text-sage-700">8275 Judges Way, Suite 100D, Room #11, Frisco, TX 75036</strong> —
+                Walk-ins welcome based on availability.
+                Mobile sessions also available throughout{' '}
+                <strong className="text-sage-700">Frisco, Little Elm, McKinney, Prosper, Allen, Plano</strong>
+                {' '}&amp; surrounding North Texas areas. Travel fee starting at $25.
               </p>
               <div className="mt-auto flex flex-col sm:flex-row gap-3">
                 <Link href="/book" className="btn-primary">Book Your Session</Link>
                 <Link href="/contact" className="btn-outline">Ask a Question</Link>
               </div>
+              <p className="text-sage-400 text-sm mt-4">
+                Buying for someone else?{' '}
+                <a
+                  href="https://app.squareup.com/gift/MLG1HM1CDGP8W/order"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-teal-500 hover:text-teal-600 font-medium underline underline-offset-2 transition-colors duration-200"
+                >
+                  Purchase a gift card →
+                </a>
+              </p>
             </motion.div>
           </div>
         </div>

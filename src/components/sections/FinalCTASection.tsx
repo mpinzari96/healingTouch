@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { useToast } from '@/components/ui/ToastProvider';
-import { ArrowRight, Phone } from 'lucide-react';
+import { ArrowRight, Phone, Gift } from 'lucide-react';
 
 export function FinalCTASection() {
   const { showToast } = useToast();
@@ -64,7 +64,7 @@ export function FinalCTASection() {
               Book your massage in Frisco today — relax in my home studio or have a full session 
               come to you. Every appointment is customized to help you feel your best.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 flex-wrap">
               <Link href="/book" className="btn-primary bg-white text-sage-700 hover:bg-beige-100 shadow-button group inline-flex">
                 Book Online Now
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
@@ -75,6 +75,15 @@ export function FinalCTASection() {
               >
                 <Phone className="w-4 h-4" />
                 (916) 261-5342
+              </a>
+              <a
+                href="https://app.squareup.com/gift/MLG1HM1CDGP8W/order"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary inline-flex items-center gap-2 bg-white/15 text-white border border-white/30 hover:bg-white/25"
+              >
+                <Gift className="w-4 h-4" />
+                Purchase a Gift Card
               </a>
             </div>
           </motion.div>

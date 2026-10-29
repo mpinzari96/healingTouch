@@ -1,13 +1,9 @@
 'use client';
 
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Gift, ArrowRight } from 'lucide-react';
 
-// NOTE: The "Purchase a Gift Card" CTA currently points to /contact.
-// Once a gift card platform is set up (e.g. Square, Vagaro, or Mindbody),
-// update `GIFT_CARD_URL` to the real purchase link.
-const GIFT_CARD_URL = '/contact';
+const GIFT_CARD_URL = 'https://app.squareup.com/gift/MLG1HM1CDGP8W/order';
 
 export function GiftCardsSection() {
   return (
@@ -46,13 +42,15 @@ export function GiftCardsSection() {
               simply to show appreciation.
             </p>
 
-            <Link
+            <a
               href={GIFT_CARD_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-primary bg-white text-sage-700 hover:bg-beige-100 group inline-flex"
             >
               Purchase a Gift Card
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
-            </Link>
+            </a>
           </div>
         </motion.div>
       </div>
